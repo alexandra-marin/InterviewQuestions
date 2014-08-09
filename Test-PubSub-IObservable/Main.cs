@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TestPubSubIObservable
 {
@@ -9,11 +10,7 @@ namespace TestPubSubIObservable
 		{
 			Magazine pub = new Magazine();
 
-			BadSubscriber sub1 = new BadSubscriber();
-			Subscriber sub2 = new Subscriber();
-
-			pub.Subscribe (sub1);
-			pub.Subscribe (sub2);
+			Enumerable.Range (0, 10000).ToList().ForEach (x => pub.Subscribe(new BadSubscriber()));
 
 			pub.Notify ();
 		}

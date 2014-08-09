@@ -7,11 +7,9 @@ namespace TestPubSubIObservable
 
 	public class Publisher<T> : IObservable<T>
 	{
-		private List<IObserver<T>> observers;
-		public Publisher()
-		{
-			observers = new List<IObserver<T>>();
-		}
+		private List<IObserver<T>> observers = new List<IObserver<T>>();
+
+		public Publisher() { }
 
 		public IDisposable Subscribe (IObserver<T> observer)
 		{
