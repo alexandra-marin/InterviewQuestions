@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Redo
+﻿namespace Redo
 {
 	public class PubSub
 	{

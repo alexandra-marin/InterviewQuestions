@@ -26,9 +26,7 @@ namespace TestPubSubIObservable
 			List<Task> notifications = new List<Task>();
 			foreach (IObserver<T> observer in observers)
 			{
-				Task notification = new Task (() => {
-					observer.OnNext (obj);
-				});
+				Task notification = new Task (() => observer.OnNext (obj));
 				notification.Start ();
 				notifications.Add (notification);
 			}

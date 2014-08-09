@@ -15,7 +15,7 @@ namespace ReverseStrings
 		{
 			int index = 0;
 			char[] allChars = input.ToCharArray ();
-			string[] words = input.Split (new Char[] {' ', ',', '.'});
+			string[] words = input.Split (' ', ',', '.');
 			StringBuilder output = new StringBuilder ();
 
 			foreach (var word in words) 

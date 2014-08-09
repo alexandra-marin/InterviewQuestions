@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace Armstrong
 {
@@ -17,7 +16,7 @@ namespace Armstrong
 			int index = number.ToString ().Length;
 			double sum = 0;
 
-			foreach (char digit in number.ToString ().ToCharArray()) 
+			foreach (char digit in number.ToString ()) 
 			{
 				sum += Math.Pow(Int32.Parse (digit.ToString()), index);
 			}
