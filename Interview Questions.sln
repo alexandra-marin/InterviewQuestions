@@ -39,6 +39,6 @@ Global
 		{C918509B-DD3E-4180-A899-8F70BEBA0E0F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = ReverseStrings\ReverseStrings.csproj
+		StartupItem = Test-PubSub-IObservable\Test-PubSub-IObservable.csproj
 	EndGlobalSection
 EndGlobal
