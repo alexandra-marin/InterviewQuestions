@@ -22,7 +22,7 @@ namespace Armstrong
 				sum += Math.Pow(Int32.Parse (digit.ToString()), index);
 			}
 
-			return sum == number;
+			return Math.Abs(sum - number) < double.Epsilon;
 		}
 	}
 }
