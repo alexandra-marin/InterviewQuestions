@@ -6,19 +6,18 @@ namespace MovieRental
 
 	public class CustomerView
 	{
-		CustomerViewModel cvm;
+		private CustomerViewModel customerViewModel;
 
 		public CustomerView(CustomerViewModel cvm)
 		{
-			this.cvm = cvm;
-
+			this.customerViewModel = cvm;
 		}
 
 		public void ShowSummary()
 		{
-			Console.WriteLine (cvm.customer);
-			Console.WriteLine (cvm.rentalsWithPrices);
-			Console.WriteLine (cvm.total);
+			Console.WriteLine (customerViewModel.Customer);
+			Console.WriteLine (customerViewModel.RentalsWithPrices);
+			Console.WriteLine (customerViewModel.Total);
 		}
 	}
 

@@ -7,8 +7,8 @@ namespace MovieRental
 	public class Controller
 	{
 		public Customer Customer;
-		private CustomerViewModel cvm;
 		public CustomerView CustomerView;
+		private CustomerViewModel customerViewModel;
 
 		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
 
@@ -29,8 +29,8 @@ namespace MovieRental
 				rentalsWithPrices.Add (rental, fare);
 			}
 
-			cvm = new CustomerViewModel (Customer, rentalsWithPrices, total);
-			CustomerView = new CustomerView (cvm);
+			customerViewModel = new CustomerViewModel (Customer, rentalsWithPrices, total);
+			CustomerView = new CustomerView (customerViewModel);
 		}
 	}
 }

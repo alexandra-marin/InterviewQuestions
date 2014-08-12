@@ -6,23 +6,8 @@ namespace MovieRental
 
 	public class Rental
 	{
-
 		public int Days { get; set;}
 		public PriceCode Price { get; set;}
-
-		public Rental ()
-		{
-		}
-
-//		public int CalculatePrice ()
-//		{
-//			int total = 0;
-//
-//			IPriceCalculator calculator = genericCalculator.GetCalculatorForType (this.Price); // can calculate rates for a certain type
-//			total += calculator.Calculate (this.Days); //calculates the type rates depeding on the no of days
-//
-//			return total;
-//		}
 
 		public int CalculatePoints ()
 		{

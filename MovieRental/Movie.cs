@@ -4,9 +4,7 @@ namespace MovieRental
 {
 	public class Movie
 	{
-		public Movie ()
-		{
-		}
+		public string Name { get; set;}
 	}
 }
 
