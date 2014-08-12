@@ -26,6 +26,7 @@ namespace MovieRental
 			{
 				IPriceCalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
 				var fare = calculator.Calculate (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
+				total += fare;
 				rentalsWithPrices.Add (rental, fare);
 			}
 
