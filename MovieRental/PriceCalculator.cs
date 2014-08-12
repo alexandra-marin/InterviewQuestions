@@ -5,10 +5,10 @@ namespace MovieRental
 {
 	public class PriceCalculator
 	{
-		int cost;
-		int days;
-		int discountCost;
-		int afterDays;
+		private int cost;
+		private int days;
+		private int discountCost;
+		private int afterDays;
 
 		public PriceCalculator BaseCost(int cost)
 		{
@@ -40,12 +40,12 @@ namespace MovieRental
 			return cost * (days - discountedDays) + discountCost * GetDiscountedDays(); //full price for the first days, discounted after
 		}
 
-		bool DiscountApplies ()
+		private bool DiscountApplies ()
 		{
 			return days > afterDays;
 		}
 
-		public int GetDiscountedDays()
+		private int GetDiscountedDays()
 		{
 			return DiscountApplies () ? afterDays - 1 : 0;
 		}

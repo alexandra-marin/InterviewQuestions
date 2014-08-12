@@ -6,7 +6,7 @@ namespace MovieRental
 
 	public class Controller
 	{
-		public Customer Customer;
+		private Customer customer;
 		public CustomerView CustomerView;
 		private CustomerViewModel customerViewModel;
 
@@ -14,7 +14,7 @@ namespace MovieRental
 
 		public Controller(Customer customer)
 		{
-			this.Customer = customer;
+			this.customer = customer;
 		}
 
 		public void CalculatePrice ()
@@ -22,7 +22,7 @@ namespace MovieRental
 			int total = 0;
 			Dictionary<Rental, int> rentalsWithPrices = new Dictionary<Rental, int>();
 
-			foreach (var rental in Customer.Rentals) 
+			foreach (var rental in customer.Rentals) 
 			{
 				IPriceCalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
 				var fare = calculator.Calculate (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
@@ -30,7 +30,7 @@ namespace MovieRental
 				rentalsWithPrices.Add (rental, fare);
 			}
 
-			customerViewModel = new CustomerViewModel (Customer, rentalsWithPrices, total);
+			customerViewModel = new CustomerViewModel (customer, rentalsWithPrices, total);
 			CustomerView = new CustomerView (customerViewModel);
 		}
 	}
