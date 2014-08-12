@@ -10,24 +10,28 @@ namespace MovieRental
 		int discountCost;
 		int afterDays;
 
-		public void BaseCost(int cost)
+		public CalculatorChain BaseCost(int cost)
 		{
 			this.cost = cost;
+			return this;
 		}
 
-		public int ForDays(int days)
+		public CalculatorChain ForDays(int days)
 		{
 			this.days = days;
+			return this;
 		}
 
-		public int ApplyDiscount(int discount)
+		public CalculatorChain ApplyDiscount(int discount)
 		{
 			this.discountCost = discount;
+			return this;
 		}
 
-		public int AfterDays(int afterDays)
+		public CalculatorChain AfterDays(int afterDays)
 		{
 			this.afterDays = afterDays;
+			return this;
 		}
 
 		public int Calculate()
@@ -56,9 +60,48 @@ namespace MovieRental
 			calculator.ApplyDiscount (1);
 		}
 
-		public int ForDays(int days)
+		public NormalCalculatorChain ForDays(int days)
 		{
 			calculator.ForDays(days);
+			return this;
+		}
+	}
+
+	public class KidsCalculatorChain
+	{
+		private CalculatorChain calculator;
+
+		public KidsCalculatorChain()
+		{
+			calculator = new CalculatorChain ();
+			calculator.BaseCost (3);
+			calculator.AfterDays (3);
+			calculator.ApplyDiscount (1);
+		}
+
+		public KidsCalculatorChain ForDays(int days)
+		{
+			calculator.ForDays(days);
+			return this;
+
+		}
+	}
+
+	public class PremmiereCalculatorChain
+	{
+		private CalculatorChain calculator;
+
+		public PremmiereCalculatorChain()
+		{
+			calculator = new CalculatorChain ();
+			calculator.BaseCost (3);
+		}
+
+		public PremmiereCalculatorChain ForDays(int days)
+		{
+			calculator.ForDays(days);			
+			return this;
+
 		}
 	}
 }
