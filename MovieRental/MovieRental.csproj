@@ -35,5 +35,6 @@
     <Compile Include="Rental.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PriceCalculators.cs" />
+    <Compile Include="Calculator.cs" />
   </ItemGroup>
 </Project>

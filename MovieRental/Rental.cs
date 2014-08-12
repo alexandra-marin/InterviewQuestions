@@ -2,9 +2,11 @@
 
 namespace MovieRental
 {
+	public enum PriceCode {Normal, Kids, Premiere};
+
 	public class Rental
 	{
-		public enum PriceCode {Normal, Kids, Premiere};
+		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
 
 		public int Days { get; set;}
 		public PriceCode Price { get; set;}
@@ -16,27 +18,16 @@ namespace MovieRental
 		public int CalculatePrice ()
 		{
 			int total = 0;
-			switch (this.Price) 
-			{
-				case PriceCode.Normal:
-					total += 2;
-					if (this.Days > 2)
-						total += 1;
-					break;
-				case PriceCode.Kids:
-					total += 5;
-					if (this.Days > 2)
-						total += 2;
-					break;
-				case PriceCode.Premiere:
-					total += 3;
-					break;
-			}
+
+			IPriceCalculator calculator = genericCalculator.GetCalculatorForType (this.Price); // can calculate rates for a certain type
+			total += calculator.Calculate (this.Days); //calculates the type rates depeding on the no of days
+
 			return total;
 		}
 
 		public int CalculatePoints ()
 		{
+			//TODO same as price
 			if (this.Days > 5 && this.Price == PriceCode.Premiere)
 				return 5;
 			else if (this.Days > 7 && this.Price == PriceCode.Kids)
