@@ -33,5 +33,6 @@
     <Compile Include="Customer.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Rental.cs" />
+    <Compile Include="Main.cs" />
   </ItemGroup>
 </Project>

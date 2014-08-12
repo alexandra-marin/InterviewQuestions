@@ -24,14 +24,14 @@ namespace MovieRental
 				switch (rental.Price) 
 				{
 					case MovieRental.Rental.PriceCode.Normal:
-							total += 1.5;
+							total += 1;
 							if (rental.Days > 2)
-								total += 1.2;
+								total += 3;
 						break;
 					case MovieRental.Rental.PriceCode.Kids:
 							total += 3;
 							if (rental.Days > 2)
-								total += 1.5;
+								total += 5;
 						break;
 					case MovieRental.Rental.PriceCode.Premiere:
 							total += 3;
@@ -39,13 +39,7 @@ namespace MovieRental
 				}
 				Console.WriteLine ("Rental cost is...");
 
-				LoyalityPoints++;
-
-				if (rental.Days > 5 && rental.Price == MovieRental.Rental.PriceCode.Premiere)
-					LoyalityPoints++;
-
-				if (rental.Days > 7 && rental.Price == MovieRental.Rental.PriceCode.Kids)
-					LoyalityPoints += 2;
+				LoyalityPoints = rental.CalculatePoints ();
 
 				Console.WriteLine ("Total points for rental is...");
 			}
