@@ -15,6 +15,7 @@ namespace MovieRental
 		public void ShowSummary()
 		{
 			int total = 0;
+			int loyalityPoints = 0;
 
 			Console.WriteLine ("Calculate for customer...");
 
@@ -37,8 +38,17 @@ namespace MovieRental
 						break;
 				}
 				Console.WriteLine ("Rental cost is...");
+
+				if (rental.Days > 5 && rental.Price == MovieRental.Rental.PriceCode.Premiere)
+					loyalityPoints++;
+
+				if (rental.Days > 7 && rental.Price == MovieRental.Rental.PriceCode.Kids)
+					loyalityPoints += 2;
 			}
-			Console.WriteLine ("................");
+
+			loyalityPoints++;
+
+			Console.WriteLine ("Total points is...");
 			Console.WriteLine ("Total rent is...");
 		}
 	}
