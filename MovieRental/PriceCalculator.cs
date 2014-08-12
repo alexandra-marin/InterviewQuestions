@@ -40,11 +40,11 @@ namespace MovieRental
 
 			if (discountApplies) 
 			{
-				CalculateSpecialCost (); 
+				return CalculateWithDiscount (); 
 			} 
 			else 
 			{
-				CalculateSimpleCost ();
+				return CalculateWithoutDiscount ();
 			}
 		}
 
@@ -53,12 +53,12 @@ namespace MovieRental
 			return days > afterDays;
 		}
 
-		public int CalculateSimpleCost ()
+		public int CalculateWithoutDiscount ()
 		{
 			return cost * days;
 		}
 
-		public int CalculateSpecialCost ()
+		public int CalculateWithDiscount ()
 		{
 			return cost * (days - afterDays + 1) + discountCost * (afterDays - 1); //full price for the first days, discounted after
 		}

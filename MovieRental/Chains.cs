@@ -8,10 +8,7 @@ namespace MovieRental
 
 		public NormalCalculatorChain()
 		{
-			calculator = new PriceCalculator ();
-			calculator.BaseCost (2);
-			calculator.AfterDays (2);
-			calculator.DiscountedCost (1);
+			calculator = new PriceCalculator().BaseCost(2).AfterDays (2).ApplyDiscount (1);
 		}
 
 		public NormalCalculatorChain ForDays(int days)
@@ -27,10 +24,8 @@ namespace MovieRental
 
 		public KidsCalculatorChain()
 		{
-			calculator = new PriceCalculator ();
-			calculator.BaseCost (3);
-			calculator.AfterDays (3);
-			calculator.DiscountedCost (1);
+			calculator = new PriceCalculator().BaseCost(3).AfterDays (3).ApplyDiscount (1);
+
 		}
 
 		public KidsCalculatorChain ForDays(int days)
@@ -46,8 +41,7 @@ namespace MovieRental
 
 		public PremmiereCalculatorChain()
 		{
-			calculator = new PriceCalculator ();
-			calculator.BaseCost (3);
+			calculator = new PriceCalculator().BaseCost (3);
 		}
 
 		public PremmiereCalculatorChain ForDays(int days)
