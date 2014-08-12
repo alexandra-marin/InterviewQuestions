@@ -36,22 +36,12 @@ namespace MovieRental
 
 		public int Calculate()
 		{
-			var discountApplies = DiscountApplies ();
-
-			if (!DiscountApplies ())
-				afterDays = 1;
-
 			return cost * (days - DiscountedDays()) + discountCost * DiscountedDays(); //full price for the first days, discounted after
-		}
-
-		public bool DiscountApplies ()
-		{
-			return days > afterDays;
 		}
 
 		public int DiscountedDays()
 		{
-			return afterDays - 1;
+			return days > afterDays ? afterDays - 1 : 0;
 		}
 	}
 }
