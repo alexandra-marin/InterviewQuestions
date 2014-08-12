@@ -36,10 +36,11 @@ namespace MovieRental
 
 		public int Calculate()
 		{
-			return cost * (days - DiscountedDays()) + discountCost * DiscountedDays(); //full price for the first days, discounted after
+			var discountedDays = GetDiscountedDays ();
+			return cost * (days - discountedDays) + discountCost * GetDiscountedDays(); //full price for the first days, discounted after
 		}
 
-		public int DiscountedDays()
+		public int GetDiscountedDays()
 		{
 			return days > afterDays ? afterDays - 1 : 0;
 		}
