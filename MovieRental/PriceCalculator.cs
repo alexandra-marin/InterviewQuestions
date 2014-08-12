@@ -40,9 +40,14 @@ namespace MovieRental
 			return cost * (days - discountedDays) + discountCost * GetDiscountedDays(); //full price for the first days, discounted after
 		}
 
+		bool DiscountApplies ()
+		{
+			return days > afterDays;
+		}
+
 		public int GetDiscountedDays()
 		{
-			return days > afterDays ? afterDays - 1 : 0;
+			return DiscountApplies () ? afterDays - 1 : 0;
 		}
 	}
 }
