@@ -7,6 +7,7 @@ namespace MovieRental
 	{
 		public string Name {get; set;}
 		public List<Rental> Rentals { get; set;}
+		int LoyalityPoints = 0;
 
 		public Customer ()
 		{
@@ -15,7 +16,6 @@ namespace MovieRental
 		public void ShowSummary()
 		{
 			int total = 0;
-			int loyalityPoints = 0;
 
 			Console.WriteLine ("Calculate for customer...");
 
@@ -39,16 +39,17 @@ namespace MovieRental
 				}
 				Console.WriteLine ("Rental cost is...");
 
+				LoyalityPoints++;
+
 				if (rental.Days > 5 && rental.Price == MovieRental.Rental.PriceCode.Premiere)
-					loyalityPoints++;
+					LoyalityPoints++;
 
 				if (rental.Days > 7 && rental.Price == MovieRental.Rental.PriceCode.Kids)
-					loyalityPoints += 2;
+					LoyalityPoints += 2;
+
+				Console.WriteLine ("Total points for rental is...");
 			}
 
-			loyalityPoints++;
-
-			Console.WriteLine ("Total points is...");
 			Console.WriteLine ("Total rent is...");
 		}
 	}
