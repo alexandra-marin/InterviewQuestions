@@ -19,14 +19,14 @@ namespace MovieRental
 			switch (this.Price) 
 			{
 				case PriceCode.Normal:
-					total += 1;
+					total += 2;
 					if (this.Days > 2)
-						total += 3;
+						total += 1;
 					break;
 				case PriceCode.Kids:
-					total += 3;
+					total += 5;
 					if (this.Days > 2)
-						total += 5;
+						total += 2;
 					break;
 				case PriceCode.Premiere:
 					total += 3;
