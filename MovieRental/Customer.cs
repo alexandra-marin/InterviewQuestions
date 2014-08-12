@@ -21,22 +21,7 @@ namespace MovieRental
 
 			foreach (var rental in Rentals) 
 			{
-				switch (rental.Price) 
-				{
-					case MovieRental.Rental.PriceCode.Normal:
-							total += 1;
-							if (rental.Days > 2)
-								total += 3;
-						break;
-					case MovieRental.Rental.PriceCode.Kids:
-							total += 3;
-							if (rental.Days > 2)
-								total += 5;
-						break;
-					case MovieRental.Rental.PriceCode.Premiere:
-							total += 3;
-						break;
-				}
+				total += rental.CalculatePrice ();
 				Console.WriteLine ("Rental cost is...");
 
 				LoyalityPoints = rental.CalculatePoints ();
