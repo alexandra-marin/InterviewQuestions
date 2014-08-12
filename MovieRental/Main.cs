@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MovieRental
 {
@@ -6,6 +7,13 @@ namespace MovieRental
 	{
 		public static void Main ()
 		{
+			Customer customer = new Customer ();
+			customer.Rentals = new List<Rental> ();
+
+			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10});
+			customer.Rentals.Add (new Rental() {Price = PriceCode.Premiere, Days = 1});
+
+			customer.ShowSummary ();
 		}
 	}
 }

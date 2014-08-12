@@ -25,7 +25,6 @@ namespace MovieRental
 				Console.WriteLine ("Rental cost is...");
 
 				LoyalityPoints = rental.CalculatePoints ();
-
 				Console.WriteLine ("Total points for rental is...");
 			}
 
