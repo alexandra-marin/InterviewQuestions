@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armstrong", "Armstrong\Arms
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseStrings", "ReverseStrings\ReverseStrings.csproj", "{A18222D0-F356-42B4-8D0A-BF172C84349B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRental", "MovieRental\MovieRental.csproj", "{E07E4D57-C704-4829-8ECE-58C361580128}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -37,6 +39,10 @@ Global
 		{C918509B-DD3E-4180-A899-8F70BEBA0E0F}.Debug|x86.Build.0 = Debug|x86
 		{C918509B-DD3E-4180-A899-8F70BEBA0E0F}.Release|x86.ActiveCfg = Release|x86
 		{C918509B-DD3E-4180-A899-8F70BEBA0E0F}.Release|x86.Build.0 = Release|x86
+		{E07E4D57-C704-4829-8ECE-58C361580128}.Debug|x86.ActiveCfg = Debug|x86
+		{E07E4D57-C704-4829-8ECE-58C361580128}.Debug|x86.Build.0 = Debug|x86
+		{E07E4D57-C704-4829-8ECE-58C361580128}.Release|x86.ActiveCfg = Release|x86
+		{E07E4D57-C704-4829-8ECE-58C361580128}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Test-PubSub-IObservable\Test-PubSub-IObservable.csproj
