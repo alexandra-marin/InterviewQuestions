@@ -36,5 +36,8 @@
     <Compile Include="Main.cs" />
     <Compile Include="PriceCalculators.cs" />
     <Compile Include="Calculator.cs" />
+    <Compile Include="CustomerViewModel.cs" />
+    <Compile Include="Controller.cs" />
+    <Compile Include="CustomerView.cs" />
   </ItemGroup>
 </Project>
