@@ -22,9 +22,9 @@ namespace MovieRental
 			return this;
 		}
 
-		public PriceCalculator DiscountedCost(int discount)
+		public PriceCalculator ApplyDiscount(int discount)
 		{
-			this.discountCost = discount;
+			this.discountCost = cost - discount;
 			return this;
 		}
 
