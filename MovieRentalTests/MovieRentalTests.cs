@@ -8,14 +8,16 @@ namespace CustomerTests
 	[TestFixture ()]
 	public class WithMoreThanTwentyPoints
 	{
-		Customer customer = new Customer ();
+		Customer customer;
 		Controller controller;
 
 		[TestFixtureSetUp]
 		public void DefineCustomer ()
 		{
-			controller = new Controller(customer);
+			customer = new Customer ();
 			customer.LoyalityPoints = 21;
+			controller = new Controller(customer);
+
 		}
 
 		[Test ()]
