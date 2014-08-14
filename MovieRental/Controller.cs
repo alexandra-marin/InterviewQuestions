@@ -20,6 +20,7 @@ namespace MovieRental
 		public void CalculatePrice ()
 		{
 			int total = 0;
+			int points = 0;
 			Dictionary<Rental, int> rentalsWithPrices = new Dictionary<Rental, int>();
 
 			foreach (var rental in customer.Rentals) 
@@ -30,12 +31,13 @@ namespace MovieRental
 				rentalsWithPrices.Add (rental, fare);
 			}
 
-			customerViewModel = new CustomerViewModel (customer, rentalsWithPrices, total);
+			customerViewModel = new CustomerViewModel (rentalsWithPrices, total, points);
 			CustomerView = new CustomerView (customerViewModel);
 		}
 
 		public int CalculatePoints ()
 		{
+			int total = 0;
 			foreach (var rental in customer.Rentals) 
 			{
 				if (rental.Days > 5 && rental.Price == PriceCode.Premiere)
@@ -45,6 +47,7 @@ namespace MovieRental
 				else
 					return 1;
 			}
+			return total;
 		}
 	}
 }

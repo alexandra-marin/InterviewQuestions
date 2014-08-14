@@ -11,9 +11,9 @@ namespace MovieRental
 		{
 			calculatorTypes = new Dictionary<PriceCode, IPriceCalculator>()
 			{
-				{PriceCode.Normal, new NormalPriceCalculator()},
-				{PriceCode.Kids, new KidsPriceCalculator()},
-				{PriceCode.Premiere, new PremierePriceCalculator()}
+				{PriceCode.Normal, new NormalCalculatorChain()},
+				{PriceCode.Kids, new KidsCalculatorChain()},
+				{PriceCode.Premiere, new PremmiereCalculatorChain()}
 			};
 		}
 
