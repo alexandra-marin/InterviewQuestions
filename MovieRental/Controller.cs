@@ -33,5 +33,18 @@ namespace MovieRental
 			customerViewModel = new CustomerViewModel (customer, rentalsWithPrices, total);
 			CustomerView = new CustomerView (customerViewModel);
 		}
+
+		public int CalculatePoints ()
+		{
+			foreach (var rental in customer.Rentals) 
+			{
+				if (rental.Days > 5 && rental.Price == PriceCode.Premiere)
+					return 5;
+				else if (rental.Days > 7 && rental.Price == PriceCode.Kids)
+					return 3;
+				else
+					return 1;
+			}
+		}
 	}
 }

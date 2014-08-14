@@ -45,6 +45,6 @@ Global
 		{E07E4D57-C704-4829-8ECE-58C361580128}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Test-PubSub-IObservable\Test-PubSub-IObservable.csproj
+		StartupItem = MovieRental\MovieRental.csproj
 	EndGlobalSection
 EndGlobal
