@@ -5,15 +5,15 @@ namespace MovieRental
 {
 	public class CustomerViewModel
 	{
+		public Customer Customer;
 		public Dictionary<Rental, int> RentalsWithPrices;
-		public int TotalPriceOfRentals;
-		public int Points;
+		public int Total;
 
-		public CustomerViewModel (Dictionary<Rental, int> rentalsWithPrices, int rentalPrice, int points)
+		public CustomerViewModel (Customer customer, Dictionary<Rental, int> rentalsWithPrices, int total)
 		{
-			this.Points = points;
-			this.TotalPriceOfRentals = rentalPrice;
+			this.Total = total;
 			this.RentalsWithPrices = rentalsWithPrices;
+			this.Customer = customer;
 		}
 	}
 }

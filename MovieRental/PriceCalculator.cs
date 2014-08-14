@@ -9,8 +9,6 @@ namespace MovieRental
 		private int days;
 		private int discountCost;
 		private int afterDays;
-		private int pointsGivenAfterDays;
-		private int maxPointsGiven;
 
 		public PriceCalculator BaseCost(int cost)
 		{
@@ -36,22 +34,10 @@ namespace MovieRental
 			return this;
 		}
 
-		public PriceCalculator PointsGivenAfterDays(int pointsGivenAfterDays)
-		{
-			this.pointsGivenAfterDays = pointsGivenAfterDays;
-			return this;
-		}
-
-		public PriceCalculator MaxPointsGiven(int maxPointsGiven)
-		{
-			this.maxPointsGiven = maxPointsGiven;
-			return this;
-		}
-
-		public int CalculatePrice()
+		public int Calculate()
 		{
 			var discountedDays = GetDiscountedDays ();
-			return cost * (days - discountedDays) + discountCost * discountedDays; //full price for the first days, discounted after
+			return cost * (days - discountedDays) + discountCost * GetDiscountedDays(); //full price for the first days, discounted after
 		}
 
 		private bool DiscountApplies ()
@@ -62,16 +48,6 @@ namespace MovieRental
 		private int GetDiscountedDays()
 		{
 			return DiscountApplies () ? afterDays - 1 : 0;
-		}
-
-		public int CalculatePoints()
-		{
-			return MaxPointCanBeGiven () ? maxPointsGiven : 1;
-		}
-
-		private bool MaxPointCanBeGiven()
-		{
-			return days > pointsGivenAfterDays; // if you rent more than the period
 		}
 	}
 }

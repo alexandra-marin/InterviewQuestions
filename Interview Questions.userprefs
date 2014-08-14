@@ -1,20 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MovieRental/PriceCalculators.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ReDo/Subscriber.cs">
     <Files>
-      <File FileName="MovieRental/PriceCalculators.cs" Line="15" Column="15" />
-      <File FileName="MovieRental/Calculator.cs" Line="1" Column="1" />
-      <File FileName="MovieRental/Controller.cs" Line="21" Column="21" />
-      <File FileName="MovieRental/PriceCalculator.cs" Line="11" Column="11" />
-      <File FileName="MovieRental/Chains.cs" Line="36" Column="36" />
+      <File FileName="Test-PubSub-IObservable/Main.cs" Line="1" Column="1" />
+      <File FileName="Test-PubSub-IObservable/Publisher.cs" Line="1" Column="1" />
+      <File FileName="Test-PubSub-IObservable/Subscriber.cs" Line="1" Column="1" />
+      <File FileName="Test-PubSub-IObservable/Magazine.cs" Line="1" Column="1" />
+      <File FileName="ReverseStrings/Main.cs" Line="1" Column="1" />
+      <File FileName="Polimorphysm/Poli.cs" Line="1" Column="1" />
+      <File FileName="ReDo/Main.cs" Line="1" Column="1" />
+      <File FileName="Armstrong/Astrng.cs" Line="1" Column="1" />
+      <File FileName="ReDo/Publisher.cs" Line="1" Column="1" />
+      <File FileName="ReDo/Subscriber.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="BuilderDemo" expanded="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

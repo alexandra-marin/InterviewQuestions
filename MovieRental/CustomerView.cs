@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace MovieRental
 {
+
 	public class CustomerView
 	{
 		private CustomerViewModel customerViewModel;
@@ -14,8 +15,9 @@ namespace MovieRental
 
 		public void ShowSummary()
 		{
+			Console.WriteLine (customerViewModel.Customer);
 			Console.WriteLine (customerViewModel.RentalsWithPrices);
-			Console.WriteLine (customerViewModel.TotalPriceOfRentals);
+			Console.WriteLine (customerViewModel.Total);
 		}
 	}
 

@@ -5,19 +5,19 @@ namespace MovieRental
 {
 	public class Calculator
 	{
-		private Dictionary<PriceCode, ICalculator> calculatorTypes;
+		private Dictionary<PriceCode, IPriceCalculator> calculatorTypes;
 
 		public Calculator()
 		{
-			calculatorTypes = new Dictionary<PriceCode, ICalculator>()
+			calculatorTypes = new Dictionary<PriceCode, IPriceCalculator>()
 			{
-				{PriceCode.Normal, new NormalCalculatorChain()},
-				{PriceCode.Kids, new KidsCalculatorChain()},
-				{PriceCode.Premiere, new PremmiereCalculatorChain()}
+				{PriceCode.Normal, new NormalPriceCalculator()},
+				{PriceCode.Kids, new KidsPriceCalculator()},
+				{PriceCode.Premiere, new PremierePriceCalculator()}
 			};
 		}
 
-		public ICalculator GetCalculatorForType (PriceCode price)
+		public IPriceCalculator GetCalculatorForType (PriceCode price)
 		{
 			return calculatorTypes[price];
 		}

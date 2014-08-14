@@ -2,7 +2,7 @@
 
 namespace MovieRental
 {
-	public class NormalCalculatorChain : ICalculator
+	public class NormalCalculatorChain
 	{
 		private PriceCalculator calculator;
 
@@ -16,29 +16,15 @@ namespace MovieRental
 			calculator.ForDays(days);
 			return this;
 		}
-
-		#region IPriceCalculator implementation
-
-		public int CalculatePrice (int days)
-		{
-			return calculator.CalculatePrice ();
-		}
-
-		#endregion
-
-		public int CalculatePoints ()
-		{
-			return 0;// calculator.CalculatePoints ();
-		}
 	}
 
-	public class KidsCalculatorChain : ICalculator
+	public class KidsCalculatorChain
 	{
 		private PriceCalculator calculator;
 
 		public KidsCalculatorChain()
 		{
-			calculator = new PriceCalculator().BaseCost(3).AfterDays (3).ApplyDiscount (1).PointsGivenAfterDays(7).MaxPointsGiven(3);
+			calculator = new PriceCalculator().BaseCost(3).AfterDays (3).ApplyDiscount (1);
 
 		}
 
@@ -47,49 +33,21 @@ namespace MovieRental
 			calculator.ForDays(days);
 			return this;
 		}
-
-		#region IPriceCalculator implementation
-
-		public int CalculatePrice (int days)
-		{
-			return calculator.CalculatePrice ();
-		}
-
-		#endregion
-
-		public int CalculatePoints ()
-		{
-			return calculator.CalculatePoints ();
-		}
 	}
 
-	public class PremmiereCalculatorChain : ICalculator
+	public class PremmiereCalculatorChain
 	{
 		private PriceCalculator calculator;
 
 		public PremmiereCalculatorChain()
 		{
-			calculator = new PriceCalculator().BaseCost (3).PointsGivenAfterDays(5).MaxPointsGiven(5);
+			calculator = new PriceCalculator().BaseCost (3);
 		}
 
 		public PremmiereCalculatorChain ForDays(int days)
 		{
 			calculator.ForDays(days);			
 			return this;
-		}
-
-		#region IPriceCalculator implementation
-
-		public int CalculatePrice (int days)
-		{
-			return calculator.CalculatePrice ();
-		}
-
-		#endregion
-
-		public int CalculatePoints ()
-		{
-			return calculator.CalculatePoints ();
 		}
 	}
 }
