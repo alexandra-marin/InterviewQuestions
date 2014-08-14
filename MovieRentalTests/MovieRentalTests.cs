@@ -11,19 +11,19 @@ namespace CustomerTests
 		Customer customer;
 		Controller controller;
 
-		[TestFixtureSetUp]
+		[SetUpAttribute]
 		public void DefineCustomer ()
 		{
 			customer = new Customer ();
+			customer.Rentals = new List<Rental> ();
 			customer.LoyalityPoints = 21;
 			controller = new Controller(customer);
 
 		}
 
 		[Test ()]
-		public void GetsFreeRental ()
+		public void GetsOneFreeRental ()
 		{
-			customer.Rentals = new List<Rental> ();
 			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); // 3pts
 			controller.CalculatePrice ();
 
@@ -31,9 +31,22 @@ namespace CustomerTests
 		}
 
 		[Test ()]
+		public void PaysSecondRental ()
+		{
+			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); // 3pts
+			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); // 3pts
+
+			controller.CalculatePrice ();
+
+			Assert.IsTrue (controller.CustomerView.customerViewModel.Total > 0);
+		}
+
+		[Test ()]
 		public void PointsAreResetted ()
 		{
-			Assert.IsTrue (customer.LoyalityPoints == 0);
+			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); // 3pts
+			controller.CalculatePrice ();
+			Assert.IsTrue (customer.LoyalityPoints == 4); //21+3-20
 		}
 	}
 }

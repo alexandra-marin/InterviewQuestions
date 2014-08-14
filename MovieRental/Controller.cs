@@ -39,7 +39,7 @@ namespace MovieRental
 			if (customer.LoyalityPoints > 20)
 			{
 				totalPrice -= lastFare;
-				customer.LoyalityPoints = 0;
+				customer.LoyalityPoints -= 20;
 			}
 
 			customerViewModel = new CustomerViewModel (customer, rentalsWithPrices, totalPrice);
