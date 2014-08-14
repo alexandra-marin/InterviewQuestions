@@ -6,7 +6,7 @@ namespace MovieRental
 
 	public class CustomerView
 	{
-		private CustomerViewModel customerViewModel;
+        public CustomerViewModel customerViewModel;
 
 		public CustomerView(CustomerViewModel cvm)
 		{
