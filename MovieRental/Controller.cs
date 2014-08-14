@@ -26,24 +26,14 @@ namespace MovieRental
 			foreach (var rental in customer.Rentals) 
 			{
 				IPriceCalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
-				var fare = calculator.Calculate (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
+				var fare = calculator.CalculatePrice (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
 				totalPrice += fare;
-				totalpoints += CalculateRentalPoints(rental);
+				totalpoints += calculator.CalculatePoints();
 				rentalsWithPrices.Add (rental, fare);
 			}
 
 			customerViewModel = new CustomerViewModel (rentalsWithPrices, totalPrice, totalpoints);
 			CustomerView = new CustomerView (customerViewModel);
-		}
-
-		public int CalculateRentalPoints (Rental rental)
-		{
-			if (rental.Days > 5 && rental.Price == PriceCode.Premiere)
-				return 5;
-			else if (rental.Days > 7 && rental.Price == PriceCode.Kids)
-				return 3;
-			else
-				return 1;
 		}
 	}
 }
