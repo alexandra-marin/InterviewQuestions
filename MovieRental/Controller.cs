@@ -19,35 +19,31 @@ namespace MovieRental
 
 		public void CalculatePrice ()
 		{
-			int total = 0;
-			int points = 0;
+			int totalPrice = 0;
+			int totalpoints = 0;
 			Dictionary<Rental, int> rentalsWithPrices = new Dictionary<Rental, int>();
 
 			foreach (var rental in customer.Rentals) 
 			{
 				IPriceCalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
 				var fare = calculator.Calculate (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
-				total += fare;
+				totalPrice += fare;
+				totalpoints += CalculateRentalPoints(rental);
 				rentalsWithPrices.Add (rental, fare);
 			}
 
-			customerViewModel = new CustomerViewModel (rentalsWithPrices, total, points);
+			customerViewModel = new CustomerViewModel (rentalsWithPrices, totalPrice, totalpoints);
 			CustomerView = new CustomerView (customerViewModel);
 		}
 
-		public int CalculatePoints ()
+		public int CalculateRentalPoints (Rental rental)
 		{
-			int total = 0;
-			foreach (var rental in customer.Rentals) 
-			{
-				if (rental.Days > 5 && rental.Price == PriceCode.Premiere)
-					return 5;
-				else if (rental.Days > 7 && rental.Price == PriceCode.Kids)
-					return 3;
-				else
-					return 1;
-			}
-			return total;
+			if (rental.Days > 5 && rental.Price == PriceCode.Premiere)
+				return 5;
+			else if (rental.Days > 7 && rental.Price == PriceCode.Kids)
+				return 3;
+			else
+				return 1;
 		}
 	}
 }
