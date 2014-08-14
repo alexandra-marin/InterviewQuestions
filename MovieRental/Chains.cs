@@ -2,7 +2,7 @@
 
 namespace MovieRental
 {
-	public class NormalCalculatorChain : IPriceCalculator
+	public class NormalCalculatorChain : ICalculator
 	{
 		private PriceCalculator calculator;
 
@@ -32,7 +32,7 @@ namespace MovieRental
 		}
 	}
 
-	public class KidsCalculatorChain : IPriceCalculator
+	public class KidsCalculatorChain : ICalculator
 	{
 		private PriceCalculator calculator;
 
@@ -63,7 +63,7 @@ namespace MovieRental
 		}
 	}
 
-	public class PremmiereCalculatorChain : IPriceCalculator
+	public class PremmiereCalculatorChain : ICalculator
 	{
 		private PriceCalculator calculator;
 
