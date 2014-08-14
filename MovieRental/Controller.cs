@@ -22,6 +22,7 @@ namespace MovieRental
 			int totalPrice = 0;
 			int totalPoints = 0;
 			int lastFare = 0;
+			int lastPoints = 0;
 			Dictionary<Rental, int> rentalsWithPrices = new Dictionary<Rental, int>();
 
 			foreach (var rental in customer.Rentals) 
@@ -31,7 +32,8 @@ namespace MovieRental
 				totalPrice += fare;
 				lastFare = fare;
 				rentalsWithPrices.Add (rental, fare);
-				totalPoints += rental.CalculatePoints ();
+				lastPoints = rental.CalculatePoints ();
+				totalPoints += lastPoints;
 			}
 
 			customer.LoyalityPoints += totalPoints;
@@ -40,6 +42,7 @@ namespace MovieRental
 			{
 				totalPrice -= lastFare;
 				customer.LoyalityPoints -= 20;
+				customer.LoyalityPoints -= lastPoints;
 			}
 
 			customerViewModel = new CustomerViewModel (customer, rentalsWithPrices, totalPrice);

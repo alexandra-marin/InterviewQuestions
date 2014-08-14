@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using MovieRental;
+using MovieRentalTests;
 
 namespace CustomerTests
 {
@@ -24,7 +25,7 @@ namespace CustomerTests
 		[Test ()]
 		public void GetsOneFreeRental ()
 		{
-			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); // 3pts
+			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10});
 			controller.CalculatePrice ();
 
 			Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 0);
@@ -33,8 +34,8 @@ namespace CustomerTests
 		[Test ()]
 		public void PaysSecondRental ()
 		{
-			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); // 3pts
-			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); // 3pts
+			customer.Rentals.Add ((Rental)(new RentalMock().mockRental.MockInstance)); 
+			customer.Rentals.Add ((Rental)(new RentalMock().mockRental.MockInstance)); 
 
 			controller.CalculatePrice ();
 
@@ -44,9 +45,9 @@ namespace CustomerTests
 		[Test ()]
 		public void PointsAreResetted ()
 		{
-			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); // 3pts
+			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10}); //3 pts
 			controller.CalculatePrice ();
-			Assert.IsTrue (customer.LoyalityPoints == 4); //21+3-20
+			Assert.IsTrue (customer.LoyalityPoints == 1); //21+3-20
 		}
 	}
 }
