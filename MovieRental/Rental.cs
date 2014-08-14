@@ -4,7 +4,7 @@ namespace MovieRental
 {
 	public enum PriceCode {Normal, Kids, Premiere};
 
-	public class Rental
+	public class Rental : IRental
 	{
 		public int Days { get; set;}
 		public PriceCode Price { get; set;}
@@ -19,6 +19,13 @@ namespace MovieRental
 			else
 				return 1;
 		}
+	}
+
+	public interface IRental
+	{
+		int Days { get; set;}
+		PriceCode Price { get; set;}
+		int CalculatePoints();
 	}
 }
 

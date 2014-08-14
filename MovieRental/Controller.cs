@@ -23,7 +23,7 @@ namespace MovieRental
 			int totalPoints = 0;
 			int lastFare = 0;
 			int lastPoints = 0;
-			Dictionary<Rental, int> rentalsWithPrices = new Dictionary<Rental, int>();
+			Dictionary<IRental, int> rentalsWithPrices = new Dictionary<IRental, int>();
 
 			foreach (var rental in customer.Rentals) 
 			{

@@ -16,7 +16,7 @@ namespace CustomerTests
 		public void DefineCustomer ()
 		{
 			customer = new Customer ();
-			customer.Rentals = new List<Rental> ();
+			customer.Rentals = new List<IRental> ();
 			customer.LoyalityPoints = 21;
 			controller = new Controller(customer);
 
@@ -34,8 +34,8 @@ namespace CustomerTests
 		[Test ()]
 		public void PaysSecondRental ()
 		{
-			customer.Rentals.Add ((Rental)(new RentalMock().mockRental.MockInstance)); 
-			customer.Rentals.Add ((Rental)(new RentalMock().mockRental.MockInstance)); 
+			customer.Rentals.Add ((IRental)(new RentalMock().mockRental.MockInstance)); 
+			customer.Rentals.Add ((IRental)(new RentalMock().mockRental.MockInstance)); 
 
 			controller.CalculatePrice ();
 

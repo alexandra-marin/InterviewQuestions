@@ -8,7 +8,7 @@ namespace MovieRental
 		public static void Main ()
 		{
 			Customer customer = new Customer ();
-			customer.Rentals = new List<Rental> ();
+            customer.Rentals = new List<IRental> ();
 
 			customer.Rentals.Add (new Rental() {Price = PriceCode.Kids, Days = 10});
 			customer.Rentals.Add (new Rental() {Price = PriceCode.Premiere, Days = 1});
