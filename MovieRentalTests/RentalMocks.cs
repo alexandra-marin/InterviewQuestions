@@ -6,13 +6,16 @@ namespace MovieRentalTests
 {
     public class RentalMock
     {
-        public DynamicMock mockRental = new DynamicMock(typeof(IRental));
+        public DynamicMock MockRental = new DynamicMock(typeof(IRental));
 
         public RentalMock()
         {
-            mockRental.SetReturnValue("CalculatePoints", 3);
-            mockRental.ExpectAndReturn("get_Price", PriceCode.Kids);
-            mockRental.ExpectAndReturn("get_Days", 10);
+            //Props
+            MockRental.ExpectAndReturn("get_Price", PriceCode.Kids);
+            MockRental.ExpectAndReturn("get_Days", 10);
+
+            //Meths
+            MockRental.SetReturnValue("CalculatePoints", 3);
         }
     }
 }

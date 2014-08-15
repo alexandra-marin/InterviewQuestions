@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MovieRental
 {
 
-	public class Controller
+	public class CustomerController
 	{
 		private Customer customer;
 		public CustomerView CustomerView;
@@ -12,7 +12,7 @@ namespace MovieRental
 
 		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
 
-		public Controller(Customer customer)
+		public CustomerController(Customer customer)
 		{
 			this.customer = customer;
 		}

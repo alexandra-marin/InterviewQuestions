@@ -37,9 +37,10 @@
     <Compile Include="PriceCalculators.cs" />
     <Compile Include="Calculator.cs" />
     <Compile Include="CustomerViewModel.cs" />
-    <Compile Include="Controller.cs" />
     <Compile Include="CustomerView.cs" />
     <Compile Include="PriceCalculator.cs" />
     <Compile Include="Chains.cs" />
+    <Compile Include="CustomerController.cs" />
+    <Compile Include="IRental.cs" />
   </ItemGroup>
 </Project>

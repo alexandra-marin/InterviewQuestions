@@ -14,9 +14,9 @@ namespace MovieRental
 			customer.Rentals.Add (new Rental() {Price = PriceCode.Premiere, Days = 1});
 
 
-			Controller c = new Controller (customer);
-			c.CalculatePrice ();
-			c.CustomerView.ShowSummary ();
+            CustomerController controller = new CustomerController (customer);
+			controller.CalculatePrice ();
+            controller.CustomerView.ShowSummary();
 		}
 	}
 
