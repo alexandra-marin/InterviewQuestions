@@ -32,7 +32,7 @@ namespace MovieRental
 				totalPrice += fare;
 				lastFare = fare;
 				rentalsWithPrices.Add (rental, fare);
-				lastPoints = rental.CalculatePoints ();
+                lastPoints = calculator.CalculatePoints ();
 				totalPoints += lastPoints;
 			}
 

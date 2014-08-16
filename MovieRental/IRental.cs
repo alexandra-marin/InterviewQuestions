@@ -7,6 +7,5 @@ namespace MovieRental
 	{
 		int Days { get; set;}
 		PriceCode Price { get; set;}
-		int CalculatePoints();
 	}
 }
