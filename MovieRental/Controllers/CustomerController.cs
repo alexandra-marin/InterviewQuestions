@@ -13,7 +13,7 @@ namespace MovieRental
 
         private int totalPoints = 0;
         private int totalPrice = 0;
-        private Dictionary<IRental, KeyValuePair<int, int>> rentalsWithPrices = new Dictionary<IRental, KeyValuePair<int, int>>();
+        private Dictionary<IPurchase, KeyValuePair<int, int>> rentalsWithPrices = new Dictionary<IPurchase, KeyValuePair<int, int>>();
 
 		public CustomerController(Customer customer)
 		{
@@ -41,9 +41,14 @@ namespace MovieRental
         {
             if (customer.LoyalityPoints > 20)
             {
-                totalPrice -= rentalsWithPrices.Values.Last().Key;
-                customer.LoyalityPoints -= 20;
-                customer.LoyalityPoints -= rentalsWithPrices.Values.Last().Value;
+                var freeRental = rentalsWithPrices.LastOrDefault(x => x.Key.Type == PurchaseType.Rental).Value;
+
+                if (!default(KeyValuePair<int, int>).Equals(freeRental))
+                {
+                    totalPrice -= freeRental.Key;
+                    customer.LoyalityPoints -= 20;
+                    customer.LoyalityPoints -= freeRental.Value;
+                }
             }
         }
 

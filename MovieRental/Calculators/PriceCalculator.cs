@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 namespace MovieRental
 {
     public class PriceCalculator
@@ -42,8 +40,12 @@ namespace MovieRental
         }
         public int CalculatePrice()
         {
-            var discountedDays = GetDiscountedDays ();
-            return cost * (days - discountedDays) + discountCost * GetDiscountedDays(); //full price for the first days, discounted after
+            if (days != 0)
+            {
+                var discountedDays = GetDiscountedDays();
+                return cost * (days - discountedDays) + discountCost * discountedDays; //full price for the first days, discounted after
+            }
+            return cost;
         }
         private bool DiscountApplies ()
         {

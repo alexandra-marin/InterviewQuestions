@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace MovieRental
@@ -13,7 +12,7 @@ namespace MovieRental
 			{
                 {PriceCode.Normal, new NormalCalculatorChain()},
                 {PriceCode.Kids, new KidsCalculatorChain()},
-                {PriceCode.Premiere, new PremmiereCalculatorChain()}
+                {PriceCode.Premiere, new PremiereCalculatorChain()}
 			};
 		}
 

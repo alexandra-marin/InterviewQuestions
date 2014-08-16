@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MovieRental
 {
@@ -7,7 +6,7 @@ namespace MovieRental
 	{
 		public string Name {get; set;}
 		public int LoyalityPoints = 0;
-        public List<IRental> Rentals { get; set;}
+        public List<IPurchase> Rentals { get; set;}
 	}
 }
 

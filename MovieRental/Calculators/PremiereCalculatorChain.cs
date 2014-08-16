@@ -1,12 +1,10 @@
-using System;
-
 namespace MovieRental
 {
-    public class PremmiereCalculatorChain : ICalculator
+    public class PremiereCalculatorChain : ICalculator
 	{
 		private PriceCalculator calculator;
 
-		public PremmiereCalculatorChain()
+		public PremiereCalculatorChain()
 		{
             calculator = new PriceCalculator().BaseCost(3).PointsGivenAfterDays(5).MaxPointsGiven(5);
 		}

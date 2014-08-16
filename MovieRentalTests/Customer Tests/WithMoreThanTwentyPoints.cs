@@ -1,8 +1,7 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MovieRental;
 using MovieRentalTests;
+using NUnit.Framework;
 
 namespace CustomerTests
 {
@@ -18,8 +17,8 @@ namespace CustomerTests
 			customer = new Customer ();
 			customer.LoyalityPoints = 21;
 
-			customer.Rentals = new List<IRental> ();
-			customer.Rentals.Add ((IRental)(new RentalMock().MockRental.MockInstance)); 
+			customer.Rentals = new List<IPurchase> ();
+			customer.Rentals.Add ((IPurchase)(new Mocks().MockRental.MockInstance)); 
 
 			controller = new CustomerController(customer);
 		}
@@ -35,7 +34,7 @@ namespace CustomerTests
 		public void PaysSecondRental ()
 		{
 			//Add second rental
-			customer.Rentals.Add ((IRental)(new RentalMock().MockRental.MockInstance)); 
+			customer.Rentals.Add ((IPurchase)(new Mocks().MockRental.MockInstance)); 
 
             controller.ShowCustomerSummary ();
 			Assert.IsTrue (controller.CustomerView.customerViewModel.Total > 0);
