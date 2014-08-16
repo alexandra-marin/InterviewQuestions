@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MovieRental
 {
@@ -13,40 +14,44 @@ namespace MovieRental
         private int totalPoints = 0;
         private int totalPrice = 0;
         private Dictionary<IRental, int> rentalsWithPrices = new Dictionary<IRental, int>();
+        int lastPoints = 0;
 
 		public CustomerController(Customer customer)
 		{
 			this.customer = customer;
 		}
 
-		public void CalculatePrice ()
+        private void CalculatePrice ()
 		{
-			int lastFare = 0;
-			int lastPoints = 0;
-
 			foreach (var rental in customer.Rentals) 
 			{
 				ICalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
-				var fare = calculator.CalculatePrice (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
+				
+                var fare = calculator.CalculatePrice (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
 				totalPrice += fare;
-				lastFare = fare;
 				rentalsWithPrices.Add (rental, fare);
+
                 lastPoints = calculator.CalculatePoints ();
 				totalPoints += lastPoints;
-			}
-
-			customer.LoyalityPoints += totalPoints;
-
-			if (customer.LoyalityPoints > 20)
-			{
-				totalPrice -= lastFare;
-				customer.LoyalityPoints -= 20;
-				customer.LoyalityPoints -= lastPoints;
-			}
+            }            
+            customer.LoyalityPoints += totalPoints;
 		}
 
-        public void ShowCustomerSummary()
+        private void CalculatePoints()
         {
+            if (customer.LoyalityPoints > 20)
+            {
+                totalPrice -= rentalsWithPrices.Values.Last();
+                customer.LoyalityPoints -= 20;
+                customer.LoyalityPoints -= lastPoints;
+            }
+        }
+
+        public void ShowCustomerSummary()
+        {           
+            CalculatePrice ();
+            CalculatePoints();
+
             CustomerView = new CustomerView(new CustomerViewModel(rentalsWithPrices, totalPrice, totalPoints));
             CustomerView.ShowSummary();
         }

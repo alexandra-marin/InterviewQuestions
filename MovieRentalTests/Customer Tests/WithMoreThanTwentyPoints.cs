@@ -27,7 +27,7 @@ namespace CustomerTests
 		[Test ()]
 		public void GetsOneFreeRental ()
 		{
-			controller.CalculatePrice ();
+            controller.ShowCustomerSummary ();
 			Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 0);
 		}
 
@@ -37,14 +37,14 @@ namespace CustomerTests
 			//Add second rental
 			customer.Rentals.Add ((IRental)(new RentalMock().MockRental.MockInstance)); 
 
-			controller.CalculatePrice ();
+            controller.ShowCustomerSummary ();
 			Assert.IsTrue (controller.CustomerView.customerViewModel.Total > 0);
 		}
 
 		[Test ()]
 		public void PointsAreReset ()
 		{
-			controller.CalculatePrice ();
+            controller.ShowCustomerSummary ();
 			Assert.IsTrue (customer.LoyalityPoints == 1); //21+3-20
 		}
 	}
