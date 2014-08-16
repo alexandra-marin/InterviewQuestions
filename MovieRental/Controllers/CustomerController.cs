@@ -3,14 +3,16 @@ using System.Collections.Generic;
 
 namespace MovieRental
 {
-
 	public class CustomerController
 	{
 		private Customer customer;
 		public CustomerView CustomerView;
-		private CustomerViewModel customerViewModel;
 
 		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
+
+        private int totalPoints = 0;
+        private int totalPrice = 0;
+        private Dictionary<IRental, int> rentalsWithPrices = new Dictionary<IRental, int>();
 
 		public CustomerController(Customer customer)
 		{
@@ -19,11 +21,8 @@ namespace MovieRental
 
 		public void CalculatePrice ()
 		{
-			int totalPrice = 0;
-			int totalPoints = 0;
 			int lastFare = 0;
 			int lastPoints = 0;
-			Dictionary<IRental, int> rentalsWithPrices = new Dictionary<IRental, int>();
 
 			foreach (var rental in customer.Rentals) 
 			{
@@ -44,9 +43,12 @@ namespace MovieRental
 				customer.LoyalityPoints -= 20;
 				customer.LoyalityPoints -= lastPoints;
 			}
-
-            customerViewModel = new CustomerViewModel (rentalsWithPrices, totalPrice, customer.LoyalityPoints);
-			CustomerView = new CustomerView (customerViewModel);
 		}
+
+        public void ShowCustomerSummary()
+        {
+            CustomerView = new CustomerView(new CustomerViewModel(rentalsWithPrices, totalPrice, totalPoints));
+            CustomerView.ShowSummary();
+        }
 	}
 }

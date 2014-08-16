@@ -1,14 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MovieRentalTests/MovieRentalTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MovieRental/Calculator.cs">
     <Files>
-      <File FileName="MovieRental/CustomerController.cs" Line="1" Column="1" />
-      <File FileName="MovieRental/Rental.cs" Line="1" Column="1" />
-      <File FileName="MovieRentalTests/MovieRentalTests.cs" Line="32" Column="32" />
+      <File FileName="MovieRental/CustomerController.cs" Line="58" Column="58" />
+      <File FileName="MovieRental/Rental.cs" Line="27" Column="27" />
+      <File FileName="MovieRentalTests/MovieRentalTests.cs" Line="29" Column="29" />
       <File FileName="MovieRentalTests/RentalMocks.cs" Line="1" Column="1" />
       <File FileName="MovieRental/Customer.cs" Line="1" Column="1" />
       <File FileName="MovieRental/Main.cs" Line="1" Column="1" />
       <File FileName="MovieRental/CustomerViewModel.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/PriceCalculator.cs" Line="82" Column="82" />
+      <File FileName="MovieRental/PriceCalculators.cs" Line="2" Column="2" />
+      <File FileName="MovieRental/Movie.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/IRental.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Calculator.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
