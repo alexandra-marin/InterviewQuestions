@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 namespace MovieRental
 {
     public class PriceCalculator

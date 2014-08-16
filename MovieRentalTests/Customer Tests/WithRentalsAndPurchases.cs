@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MovieRental;
 using MovieRentalTests;
+using NUnit.Framework;
 
 namespace CustomerTests
 {
@@ -32,6 +32,8 @@ namespace CustomerTests
 
             Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 3);
         }
+
+        //TODO test with no discounted days  
     }
 }
 

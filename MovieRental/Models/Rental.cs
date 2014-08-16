@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MovieRental
+﻿namespace MovieRental
 {
 	public class Rental : IRental
 	{

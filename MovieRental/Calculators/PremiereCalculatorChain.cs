@@ -1,5 +1,3 @@
-using System;
-
 namespace MovieRental
 {
     public class PremiereCalculatorChain : ICalculator
