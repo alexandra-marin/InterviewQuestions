@@ -32,9 +32,9 @@
     <Reference Include="nunit.mocks, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mocks\RentalMocks.cs" />
     <Compile Include="Customer Tests\WithMoreThanTwentyPoints.cs" />
-    <Compile Include="Rental Tests\DifferentRentalObjects.cs" />
+    <Compile Include="Mocks\Mocks.cs" />
+    <Compile Include="Customer Tests\WithRentalsAndPurchases.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -46,6 +46,5 @@
   <ItemGroup>
     <Folder Include="Customer Tests\" />
     <Folder Include="Mocks\" />
-    <Folder Include="Rental Tests\" />
   </ItemGroup>
 </Project>
