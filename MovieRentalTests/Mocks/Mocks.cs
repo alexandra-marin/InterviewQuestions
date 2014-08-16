@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Mocks;
+﻿using NUnit.Mocks;
 using MovieRental;
 
 namespace MovieRentalTests
