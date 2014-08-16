@@ -15,8 +15,7 @@ namespace MovieRental
 
 
             CustomerController controller = new CustomerController (customer);
-			controller.CalculatePrice ();
-            controller.CustomerView.ShowSummary();
+            controller.ShowCustomerSummary();
 		}
 	}
 

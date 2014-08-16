@@ -13,9 +13,6 @@ namespace MovieRentalTests
             //Props
             MockRental.ExpectAndReturn("get_Price", PriceCode.Kids);
             MockRental.ExpectAndReturn("get_Days", 10);
-
-            //Meths
-            MockRental.SetReturnValue("CalculatePoints", 3);
         }
     }
 }
