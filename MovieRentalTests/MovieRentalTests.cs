@@ -42,7 +42,7 @@ namespace CustomerTests
 		}
 
 		[Test ()]
-		public void PointsAreResetted ()
+		public void PointsAreReset ()
 		{
 			controller.CalculatePrice ();
 			Assert.IsTrue (customer.LoyalityPoints == 1); //21+3-20
