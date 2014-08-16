@@ -45,7 +45,7 @@ namespace MovieRental
 				customer.LoyalityPoints -= lastPoints;
 			}
 
-			customerViewModel = new CustomerViewModel (customer, rentalsWithPrices, totalPrice);
+            customerViewModel = new CustomerViewModel (rentalsWithPrices, totalPrice, customer.LoyalityPoints);
 			CustomerView = new CustomerView (customerViewModel);
 		}
 	}
