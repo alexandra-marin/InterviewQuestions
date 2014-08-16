@@ -5,8 +5,8 @@ namespace MovieRentalTests
 {
     public class Mocks
     {
-        public DynamicMock MockRental = new DynamicMock(typeof(IRental));
-        public DynamicMock MockPurchase = new DynamicMock(typeof(IRental));
+        public DynamicMock MockRental = new DynamicMock(typeof(IPurchase));
+        public DynamicMock MockPurchase = new DynamicMock(typeof(IPurchase));
 
         public Mocks()
         {

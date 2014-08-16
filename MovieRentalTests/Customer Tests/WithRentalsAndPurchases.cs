@@ -17,8 +17,8 @@ namespace CustomerTests
             customer = new Customer ();
             customer.LoyalityPoints = 21;
 
-            customer.Rentals = new List<IRental> (); 
-            customer.Rentals.Add ((IRental)(new Mocks().MockRental.MockInstance)); 
+            customer.Rentals = new List<IPurchase> (); 
+            customer.Rentals.Add ((IPurchase)(new Mocks().MockRental.MockInstance)); 
 
             controller = new CustomerController(customer);
         }
@@ -26,7 +26,7 @@ namespace CustomerTests
         [Test ()]
         public void GetsOneFreeRental ()
         {
-            customer.Rentals.Add ((IRental)(new Mocks().MockPurchase.MockInstance));
+            customer.Rentals.Add ((IPurchase)(new Mocks().MockPurchase.MockInstance));
 
             controller.ShowCustomerSummary ();
 

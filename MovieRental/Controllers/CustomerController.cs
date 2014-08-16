@@ -13,7 +13,7 @@ namespace MovieRental
 
         private int totalPoints = 0;
         private int totalPrice = 0;
-        private Dictionary<IRental, KeyValuePair<int, int>> rentalsWithPrices = new Dictionary<IRental, KeyValuePair<int, int>>();
+        private Dictionary<IPurchase, KeyValuePair<int, int>> rentalsWithPrices = new Dictionary<IPurchase, KeyValuePair<int, int>>();
 
 		public CustomerController(Customer customer)
 		{

@@ -1,6 +1,6 @@
 ﻿namespace MovieRental
 {
-	public class Rental : IRental
+	public class Purchase : IPurchase
 	{
 		public int Days { get; set;}
 		public PriceCode Price { get; set;}

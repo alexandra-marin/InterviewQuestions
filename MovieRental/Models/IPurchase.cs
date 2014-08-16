@@ -5,7 +5,7 @@ namespace MovieRental
     public enum PriceCode { Normal, Kids, Premiere };
     public enum PurchaseType { Rental, Purchase }
 
-	public interface IRental
+	public interface IPurchase
 	{
 		int Days { get; set;}
 		PriceCode Price { get; set;}

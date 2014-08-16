@@ -38,12 +38,11 @@
     <Compile Include="Views\CustomerView.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\IRental.cs" />
-    <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\Rental.cs" />
     <Compile Include="Calculators\ICalculator.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Calculators\PremiereCalculatorChain.cs" />
+    <Compile Include="Models\IPurchase.cs" />
+    <Compile Include="Models\Purchase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Calculators\" />
