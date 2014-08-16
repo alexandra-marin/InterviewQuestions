@@ -27,8 +27,8 @@ namespace MovieRental
 
 			foreach (var rental in customer.Rentals) 
 			{
-				IPriceCalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
-				var fare = calculator.Calculate (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
+				ICalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
+				var fare = calculator.CalculatePrice (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
 				totalPrice += fare;
 				lastFare = fare;
 				rentalsWithPrices.Add (rental, fare);

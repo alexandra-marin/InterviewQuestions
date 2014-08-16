@@ -5,11 +5,11 @@ namespace MovieRental
 {
 	public class Calculator
 	{
-		private Dictionary<PriceCode, IPriceCalculator> calculatorTypes;
+		private Dictionary<PriceCode, ICalculator> calculatorTypes;
 
 		public Calculator()
 		{
-			calculatorTypes = new Dictionary<PriceCode, IPriceCalculator>()
+			calculatorTypes = new Dictionary<PriceCode, ICalculator>()
 			{
                 {PriceCode.Normal, new NormalCalculatorChain()},
                 {PriceCode.Kids, new KidsCalculatorChain()},
@@ -17,7 +17,7 @@ namespace MovieRental
 			};
 		}
 
-		public IPriceCalculator GetCalculatorForType (PriceCode price)
+		public ICalculator GetCalculatorForType (PriceCode price)
 		{
 			return calculatorTypes[price];
 		}
