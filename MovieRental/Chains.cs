@@ -2,7 +2,7 @@
 
 namespace MovieRental
 {
-	public class NormalCalculatorChain
+    public class NormalCalculatorChain : IPriceCalculator
 	{
 		private PriceCalculator calculator;
 
@@ -16,9 +16,14 @@ namespace MovieRental
 			calculator.ForDays(days);
 			return this;
 		}
+
+        public int Calculate(int days)
+        {
+            return calculator.Calculate();
+        }
 	}
 
-	public class KidsCalculatorChain
+    public class KidsCalculatorChain : IPriceCalculator
 	{
 		private PriceCalculator calculator;
 
@@ -32,10 +37,15 @@ namespace MovieRental
 		{
 			calculator.ForDays(days);
 			return this;
-		}
+        }
+
+        public int Calculate(int days)
+        {
+            return calculator.Calculate();
+        }
 	}
 
-	public class PremmiereCalculatorChain
+    public class PremmiereCalculatorChain : IPriceCalculator
 	{
 		private PriceCalculator calculator;
 
@@ -49,6 +59,11 @@ namespace MovieRental
 			calculator.ForDays(days);			
 			return this;
 		}
+
+        public int Calculate(int days)
+        {
+            return calculator.Calculate();
+        }
 	}
 }
 
