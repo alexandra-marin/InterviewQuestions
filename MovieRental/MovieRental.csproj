@@ -32,7 +32,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="Calculators\Calculator.cs" />
-    <Compile Include="Calculators\PremmiereCalculatorChain.cs" />
     <Compile Include="Calculators\NormalCalculatorChain.cs" />
     <Compile Include="Calculators\PriceCalculator.cs" />
     <Compile Include="Calculators\KidsCalculatorChain.cs" />
@@ -44,6 +43,7 @@
     <Compile Include="Models\Rental.cs" />
     <Compile Include="Calculators\ICalculator.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Calculators\PremiereCalculatorChain.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Calculators\" />
