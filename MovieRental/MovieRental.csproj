@@ -30,17 +30,26 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="Customer.cs" />
-    <Compile Include="Movie.cs" />
-    <Compile Include="Rental.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="PriceCalculators.cs" />
-    <Compile Include="Calculator.cs" />
-    <Compile Include="CustomerViewModel.cs" />
-    <Compile Include="CustomerView.cs" />
-    <Compile Include="PriceCalculator.cs" />
-    <Compile Include="Chains.cs" />
-    <Compile Include="CustomerController.cs" />
-    <Compile Include="IRental.cs" />
+    <Compile Include="Calculators\Calculator.cs" />
+    <Compile Include="Calculators\PremmiereCalculatorChain.cs" />
+    <Compile Include="Calculators\NormalCalculatorChain.cs" />
+    <Compile Include="Calculators\PriceCalculator.cs" />
+    <Compile Include="Calculators\KidsCalculatorChain.cs" />
+    <Compile Include="Views\CustomerView.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\IRental.cs" />
+    <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
+    <Compile Include="Calculators\ICalculator.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Calculators\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 </Project>
