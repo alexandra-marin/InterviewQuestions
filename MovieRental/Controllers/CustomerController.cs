@@ -39,11 +39,16 @@ namespace MovieRental
 
         private void GetFreeRental()
         {
-            if (customer.LoyalityPoints > 20 && customer.Rentals.Any(x => x.Type == PurchaseType.Rental))
+            if (customer.LoyalityPoints > 20)
             {
-                totalPrice -= rentalsWithPrices.Values.Last().Key;
-                customer.LoyalityPoints -= 20;
-                customer.LoyalityPoints -= rentalsWithPrices.Values.Last().Value;
+                var freeRental = rentalsWithPrices.LastOrDefault(x => x.Key.Type == PurchaseType.Rental).Value;
+
+                if (freeRental.Key != -1) //TODO ...
+                {
+                    totalPrice -= freeRental.Key;
+                    customer.LoyalityPoints -= 20;
+                    customer.LoyalityPoints -= freeRental.Value;
+                }
             }
         }
 
