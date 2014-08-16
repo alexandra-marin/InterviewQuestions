@@ -2,7 +2,7 @@
 
 namespace MovieRental
 {
-	public enum PriceCode {Normal, Kids, Premiere};
+	public enum PriceCode { Normal, Kids, Premiere };
 
 	public class Rental : IRental
 	{

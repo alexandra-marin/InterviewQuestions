@@ -34,6 +34,7 @@
   <ItemGroup>
     <Compile Include="Mocks\RentalMocks.cs" />
     <Compile Include="Customer Tests\WithMoreThanTwentyPoints.cs" />
+    <Compile Include="Rental Tests\DifferentRentalObjects.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -45,5 +46,6 @@
   <ItemGroup>
     <Folder Include="Customer Tests\" />
     <Folder Include="Mocks\" />
+    <Folder Include="Rental Tests\" />
   </ItemGroup>
 </Project>
