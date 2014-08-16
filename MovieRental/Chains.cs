@@ -11,15 +11,9 @@ namespace MovieRental
 			calculator = new PriceCalculator().BaseCost(2).AfterDays (2).ApplyDiscount (1);
 		}
 
-		public NormalCalculatorChain ForDays(int days)
-		{
-			calculator.ForDays(days);
-			return this;
-		}
-
         public int Calculate(int days)
         {
-            return calculator.Calculate();
+            return calculator.ForDays(days).Calculate();
         }
 	}
 
@@ -30,18 +24,11 @@ namespace MovieRental
 		public KidsCalculatorChain()
 		{
 			calculator = new PriceCalculator().BaseCost(3).AfterDays (3).ApplyDiscount (1);
-
 		}
-
-		public KidsCalculatorChain ForDays(int days)
-		{
-			calculator.ForDays(days);
-			return this;
-        }
 
         public int Calculate(int days)
         {
-            return calculator.Calculate();
+            return calculator.ForDays(days).Calculate();
         }
 	}
 
@@ -54,15 +41,9 @@ namespace MovieRental
 			calculator = new PriceCalculator().BaseCost (3);
 		}
 
-		public PremmiereCalculatorChain ForDays(int days)
-		{
-			calculator.ForDays(days);			
-			return this;
-		}
-
         public int Calculate(int days)
         {
-            return calculator.Calculate();
+            return calculator.ForDays(days).Calculate();
         }
 	}
 }
