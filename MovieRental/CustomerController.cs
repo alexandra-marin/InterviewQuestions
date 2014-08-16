@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MovieRental
 {
 
-	public class Controller
+	public class CustomerController
 	{
 		private Customer customer;
 		public CustomerView CustomerView;
@@ -12,25 +12,40 @@ namespace MovieRental
 
 		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
 
-		public Controller(Customer customer)
+		public CustomerController(Customer customer)
 		{
 			this.customer = customer;
 		}
 
 		public void CalculatePrice ()
 		{
-			int total = 0;
-			Dictionary<Rental, int> rentalsWithPrices = new Dictionary<Rental, int>();
+			int totalPrice = 0;
+			int totalPoints = 0;
+			int lastFare = 0;
+			int lastPoints = 0;
+			Dictionary<IRental, int> rentalsWithPrices = new Dictionary<IRental, int>();
 
 			foreach (var rental in customer.Rentals) 
 			{
 				IPriceCalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
 				var fare = calculator.Calculate (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
-				total += fare;
+				totalPrice += fare;
+				lastFare = fare;
 				rentalsWithPrices.Add (rental, fare);
+				lastPoints = rental.CalculatePoints ();
+				totalPoints += lastPoints;
 			}
 
-			customerViewModel = new CustomerViewModel (customer, rentalsWithPrices, total);
+			customer.LoyalityPoints += totalPoints;
+
+			if (customer.LoyalityPoints > 20)
+			{
+				totalPrice -= lastFare;
+				customer.LoyalityPoints -= 20;
+				customer.LoyalityPoints -= lastPoints;
+			}
+
+			customerViewModel = new CustomerViewModel (customer, rentalsWithPrices, totalPrice);
 			CustomerView = new CustomerView (customerViewModel);
 		}
 	}

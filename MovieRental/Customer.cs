@@ -7,7 +7,7 @@ namespace MovieRental
 	{
 		public string Name {get; set;}
 		public int LoyalityPoints = 0;
-		public List<Rental> Rentals { get; set;}
+        public List<IRental> Rentals { get; set;}
 	}
 }
 
