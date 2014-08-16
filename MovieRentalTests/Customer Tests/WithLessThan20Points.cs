@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+
+using System.Collections.Generic;
 using MovieRental;
 using MovieRentalTests;
 using NUnit.Framework;
@@ -6,7 +8,7 @@ using NUnit.Framework;
 namespace CustomerTests
 {
     [TestFixture ()]
-    public class WithRentalsAndPurchases
+    public class WithLessThan20Points
     {
         Customer customer;
         CustomerController controller;
@@ -15,23 +17,20 @@ namespace CustomerTests
         public void DefineCustomer ()
         {
             customer = new Customer ();
-            customer.LoyalityPoints = 21;
+            customer.LoyalityPoints = 0;
 
             customer.Rentals = new List<IRental> (); 
             customer.Rentals.Add ((IRental)(new Mocks().MockRental.MockInstance)); 
+            customer.Rentals.Add ((IRental)(new Mocks().MockPurchase.MockInstance));
 
             controller = new CustomerController(customer);
         }
-   
+
         [Test ()]
-        public void GetsOneFreeRental ()
+        public void DoesNotGetFreeRental ()
         {
-            customer.Rentals.Add ((IRental)(new Mocks().MockPurchase.MockInstance));
-
             controller.ShowCustomerSummary ();
-
-            Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 3);
+            Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 31); //28 rental + 3 purchase
         }
     }
 }
-

@@ -1,14 +1,26 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MovieRental/Models/Rental.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MovieRentalTests/Customer Tests/WithRentalsAndPurchases.cs">
     <Files>
-      <File FileName="MovieRental/Controllers/CustomerController.cs" Line="1" Column="1" />
-      <File FileName="MovieRental/Main.cs" Line="1" Column="1" />
-      <File FileName="MovieRentalTests/Customer Tests/WithMoreThanTwentyPoints.cs" Line="1" Column="1" />
-      <File FileName="MovieRentalTests/Mocks/RentalMocks.cs" Line="1" Column="1" />
-      <File FileName="MovieRental/Models/IRental.cs" Line="1" Column="1" />
+      <File FileName="MovieRentalTests/Mocks/Mocks.cs" Line="27" Column="27" />
+      <File FileName="MovieRentalTests/Customer Tests/WithMoreThanTwentyPoints.cs" Line="28" Column="28" />
+      <File FileName="MovieRentalTests/Customer Tests/WithRentalsAndPurchases.cs" Line="21" Column="21" />
+      <File FileName="MovieRental/Controllers/CustomerController.cs" Line="2" Column="2" />
+      <File FileName="MovieRental/Models/Customer.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Calculators/Calculator.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Calculators/NormalCalculatorChain.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Calculators/PriceCalculator.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Calculators/KidsCalculatorChain.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Calculators/PremiereCalculatorChain.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Models/Movie.cs" Line="1" Column="1" />
       <File FileName="MovieRental/Models/Rental.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Main.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
