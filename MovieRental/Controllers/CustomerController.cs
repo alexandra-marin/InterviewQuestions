@@ -37,7 +37,7 @@ namespace MovieRental
             customer.LoyalityPoints += totalPoints;
 		}
 
-        private void CalculatePoints()
+        private void GetFreeRental()
         {
             if (customer.LoyalityPoints > 20)
             {
@@ -50,9 +50,9 @@ namespace MovieRental
         public void ShowCustomerSummary()
         {           
             CalculatePrice ();
-            CalculatePoints();
+            GetFreeRental();
 
-            CustomerView = new CustomerView(new CustomerViewModel(rentalsWithPrices, totalPrice, totalPoints));
+            CustomerView = new CustomerView(new CustomerViewModel(rentalsWithPrices, totalPrice, customer.LoyalityPoints));
             CustomerView.ShowSummary();
         }
 	}
