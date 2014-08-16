@@ -20,17 +20,16 @@ namespace CustomerTests
             customer.Rentals = new List<IRental> ();
             customer.Rentals.Add ((IRental)(new Mocks().MockRental.MockInstance)); 
 
-            customer.Purchases = new List<IPurchase> ();
-            customer.Purchases.Add ((IPurchase)(new Mocks().MockPurchase.MockInstance)); 
-
             controller = new CustomerController(customer);
         }
    
         [Test ()]
         public void GetsOneFreeRental ()
         {
+            customer.Rentals.Add ((IRental)(new Mocks().MockPurchase.MockInstance)); 
             controller.ShowCustomerSummary ();
-            Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 0);
+
+            Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 3);
         }
     }
 }
