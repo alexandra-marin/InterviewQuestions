@@ -13,8 +13,7 @@ namespace MovieRental
 
         private int totalPoints = 0;
         private int totalPrice = 0;
-        private Dictionary<IRental, int> rentalsWithPrices = new Dictionary<IRental, int>();
-        int lastPoints = 0;
+        private Dictionary<IRental, KeyValuePair<int, int>> rentalsWithPrices = new Dictionary<IRental, KeyValuePair<int, int>>();
 
 		public CustomerController(Customer customer)
 		{
@@ -29,10 +28,11 @@ namespace MovieRental
 				
                 var fare = calculator.CalculatePrice (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
 				totalPrice += fare;
-				rentalsWithPrices.Add (rental, fare);
 
-                lastPoints = calculator.CalculatePoints ();
+                var lastPoints = calculator.CalculatePoints ();
 				totalPoints += lastPoints;
+
+                rentalsWithPrices.Add (rental, new KeyValuePair<int, int>(fare, lastPoints));
             }            
             customer.LoyalityPoints += totalPoints;
 		}
@@ -41,9 +41,9 @@ namespace MovieRental
         {
             if (customer.LoyalityPoints > 20)
             {
-                totalPrice -= rentalsWithPrices.Values.Last();
+                totalPrice -= rentalsWithPrices.Values.Last().Key;
                 customer.LoyalityPoints -= 20;
-                customer.LoyalityPoints -= lastPoints;
+                customer.LoyalityPoints -= rentalsWithPrices.Values.Last().Value;
             }
         }
 
