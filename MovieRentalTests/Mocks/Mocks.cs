@@ -17,7 +17,7 @@ namespace MovieRentalTests
 
             //Purchase
             MockPurchase.ExpectAndReturn("get_Price", PriceCode.Premiere);
-            MockRental.ExpectAndReturn("get_Type", PurchaseType.Purchase);
+            MockPurchase.ExpectAndReturn("get_Type", PurchaseType.Purchase);
         }
     }
 }
