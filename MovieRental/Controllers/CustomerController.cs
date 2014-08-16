@@ -43,7 +43,7 @@ namespace MovieRental
             {
                 var freeRental = rentalsWithPrices.LastOrDefault(x => x.Key.Type == PurchaseType.Rental).Value;
 
-                if (freeRental.Key != -1) //TODO ...
+                if (!default(KeyValuePair<int, int>).Equals(freeRental))
                 {
                     totalPrice -= freeRental.Key;
                     customer.LoyalityPoints -= 20;
