@@ -13,7 +13,12 @@ namespace MovieRental
 
         public int CalculatePrice(int days)
         {
-            return calculator.ForDays(days).Calculate();
+            return calculator.ForDays(days).CalculatePrice();
+        }
+
+        public int CalculatePoints()
+        {
+            return calculator.CalculatePoints();
         }
 	}
 
@@ -23,12 +28,17 @@ namespace MovieRental
 
 		public KidsCalculatorChain()
 		{
-			calculator = new PriceCalculator().BaseCost(3).AfterDays (3).ApplyDiscount (1);
+            calculator = new PriceCalculator().BaseCost(3).AfterDays(3).ApplyDiscount(1).PointsGivenAfterDays(7).MaxPointsGiven(3);
 		}
 
         public int CalculatePrice(int days)
         {
-            return calculator.ForDays(days).Calculate();
+            return calculator.ForDays(days).CalculatePrice();
+        }
+
+        public int CalculatePoints()
+        {
+            return calculator.CalculatePoints();
         }
 	}
 
@@ -38,12 +48,17 @@ namespace MovieRental
 
 		public PremmiereCalculatorChain()
 		{
-			calculator = new PriceCalculator().BaseCost (3);
+            calculator = new PriceCalculator().BaseCost(3).PointsGivenAfterDays(5).MaxPointsGiven(5);
 		}
 
         public int CalculatePrice(int days)
         {
-            return calculator.ForDays(days).Calculate();
+            return calculator.ForDays(days).CalculatePrice();
+        }
+
+        public int CalculatePoints()
+        {
+            return calculator.CalculatePoints();
         }
 	}
 }
