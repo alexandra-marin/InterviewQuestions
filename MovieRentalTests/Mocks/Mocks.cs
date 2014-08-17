@@ -19,13 +19,13 @@ namespace MovieRentalTests
             MockRental.ExpectAndReturn("get_CopiesAvailable", 5);
             MockRental.ExpectAndReturn("get_CopiesAvailable", 5);
 
-            //Rental
+            //Last Rental
             MockPopularRental.ExpectAndReturn("get_Price", PriceCode.Kids);
             MockPopularRental.ExpectAndReturn("get_Days", 10);
             MockPopularRental.ExpectAndReturn("get_Type", PurchaseType.Rental);
-            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 2);
-            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 2);
-            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 2);
+            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 1);
+            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 1);
+            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 1);
 
             //Purchase
             MockPurchase.ExpectAndReturn("get_Price", PriceCode.Premiere);
