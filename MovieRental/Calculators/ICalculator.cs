@@ -4,8 +4,8 @@ namespace MovieRental
 {
 	public interface ICalculator
 	{
-		int CalculatePrice(int days);
-        int CalculatePoints();
+        int CalculatePrice(int days, int copiesLeft);
+        int CalculatePoints(int copies);
 	}
 }
 

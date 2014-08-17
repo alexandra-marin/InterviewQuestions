@@ -24,16 +24,22 @@ namespace MovieRental
 		{
 			foreach (var rental in customer.Rentals) 
 			{
+                // Get a calculator for this type of movie
 				ICalculator calculator = genericCalculator.GetCalculatorForType (rental.Price); // can calculate rates for a certain type
 				
-                var fare = calculator.CalculatePrice (rental.Days); //calculates the type rates depeding on the no of days	total += fare;
+                //Get the normal fare based on rental days and no of copies
+                var fare = calculator.CalculatePrice (rental.Days, rental.CopiesAvailable); //calculates the type rates depeding on the no of days	total += fare;
 				totalPrice += fare;
 
-                var lastPoints = calculator.CalculatePoints ();
-				totalPoints += lastPoints;
+                //Calculate points based on no of copies
+                var lastPoints = calculator.CalculatePoints (rental.CopiesAvailable);
+                totalPoints += lastPoints;
+
+                // Descrease available copies
+                rental.CopiesAvailable -= 1;
 
                 rentalsWithPrices.Add (rental, new KeyValuePair<int, int>(fare, lastPoints));
-            }            
+            }        
             customer.LoyalityPoints += totalPoints;
 		}
 

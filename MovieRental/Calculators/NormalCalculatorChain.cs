@@ -9,14 +9,14 @@
 			calculator = new PriceCalculator().BaseCost(2).AfterDays (2).ApplyDiscount (1);
 		}
 
-        public int CalculatePrice(int days)
+        public int CalculatePrice(int days, int copiesLeft)
         {
-            return calculator.ForDays(days).CalculatePrice();
+            return calculator.ForDays(days).CopiesLeft(copiesLeft).CalculatePrice();
         }
 
-        public int CalculatePoints()
+        public int CalculatePoints(int copies)
         {
-            return calculator.CalculatePoints();
+            return calculator.CalculatePoints(copies);
         }
 	}
 

@@ -15,15 +15,24 @@ namespace MovieRentalTests
             MockRental.ExpectAndReturn("get_Price", PriceCode.Kids);
             MockRental.ExpectAndReturn("get_Days", 10);
             MockRental.ExpectAndReturn("get_Type", PurchaseType.Rental);
+            MockRental.ExpectAndReturn("get_CopiesAvailable", 5);
+            MockRental.ExpectAndReturn("get_CopiesAvailable", 5);
+            MockRental.ExpectAndReturn("get_CopiesAvailable", 5);
 
             //Rental
             MockPopularRental.ExpectAndReturn("get_Price", PriceCode.Kids);
             MockPopularRental.ExpectAndReturn("get_Days", 10);
             MockPopularRental.ExpectAndReturn("get_Type", PurchaseType.Rental);
+            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 2);
+            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 2);
+            MockPopularRental.ExpectAndReturn("get_CopiesAvailable", 2);
 
             //Purchase
             MockPurchase.ExpectAndReturn("get_Price", PriceCode.Premiere);
             MockPurchase.ExpectAndReturn("get_Type", PurchaseType.Purchase);
+            MockPurchase.ExpectAndReturn("get_CopiesAvailable", 5);
+            MockPurchase.ExpectAndReturn("get_CopiesAvailable", 5);
+            MockPurchase.ExpectAndReturn("get_CopiesAvailable", 5);
         }
     }
 }

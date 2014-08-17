@@ -41,7 +41,7 @@ namespace CustomerTests
             controller.ShowCustomerSummary();
             var popularRentalPoints = controller.CustomerView.customerViewModel.RentalsWithPrices.Values.Last().Value;
 
-            Assert.IsTrue (popularRentalPoints == 0);
+            Assert.IsTrue (popularRentalPoints == 1);
         }
     }
 }
