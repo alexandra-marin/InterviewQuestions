@@ -52,7 +52,7 @@ namespace MovieRental
             return this;
         }
 
-        public int CalculatePrice()
+        public double CalculatePrice()
         {
             if (days != 0)
             {
@@ -68,7 +68,7 @@ namespace MovieRental
                 else if (copiesLeft == 2)
                     return total + (int)(total * 0.15);
                 else if (copiesLeft == 1)
-                    return total + (int)(total * 0.2);
+                    return total + total * 0.2;
             }
             return cost;
         }

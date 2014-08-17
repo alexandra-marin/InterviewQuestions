@@ -41,7 +41,7 @@ namespace CustomerTests
             customer.Rentals.Add ((IPurchase)(new Mocks().MockPopularRental.MockInstance));
             controller.ShowCustomerSummary();
 
-            int popularRentalPrice = controller.CustomerView.customerViewModel.RentalsWithPrices.Values.Last().Key;
+            double popularRentalPrice = controller.CustomerView.customerViewModel.RentalsWithPrices.Values.Last().Key;
 
             Assert.IsTrue (popularRentalPrice.Equals(33.6));
         }

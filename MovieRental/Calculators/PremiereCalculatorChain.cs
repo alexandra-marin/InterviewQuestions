@@ -9,7 +9,7 @@ namespace MovieRental
             calculator = new PriceCalculator().BaseCost(3).PointsGivenAfterDays(5).MaxPointsGiven(5);
 		}
 
-        public int CalculatePrice(int days, int copiesLeft)
+        public double CalculatePrice(int days, int copiesLeft)
         {
             return calculator.ForDays(days).CopiesLeft(copiesLeft).CalculatePrice();
         }

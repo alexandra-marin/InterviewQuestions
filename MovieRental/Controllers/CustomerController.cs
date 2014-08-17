@@ -12,8 +12,8 @@ namespace MovieRental
 		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
 
         private int totalPoints = 0;
-        private int totalPrice = 0;
-        private Dictionary<IPurchase, KeyValuePair<int, int>> rentalsWithPrices = new Dictionary<IPurchase, KeyValuePair<int, int>>();
+        private double totalPrice = 0;
+        private Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices = new Dictionary<IPurchase, KeyValuePair<double, int>>();
 
 		public CustomerController(Customer customer)
 		{
@@ -38,7 +38,7 @@ namespace MovieRental
                 // Descrease available copies
                 rental.CopiesAvailable -= 1;
 
-                rentalsWithPrices.Add (rental, new KeyValuePair<int, int>(fare, lastPoints));
+                rentalsWithPrices.Add (rental, new KeyValuePair<double, int>(fare, lastPoints));
             }        
             customer.LoyalityPoints += totalPoints;
 		}
