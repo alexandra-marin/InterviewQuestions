@@ -8,6 +8,7 @@ namespace MovieRental
 	public interface IPurchase
 	{
 		int Days { get; set;}
+        int CopiesAvailable { get; set;}
 		PriceCode Price { get; set;}
         PurchaseType Type { get; set;}
 	}
