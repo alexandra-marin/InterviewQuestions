@@ -32,11 +32,11 @@
     <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer Tests\WithMoreThanTwentyPoints.cs" />
     <Compile Include="Mocks\Mocks.cs" />
-    <Compile Include="Customer Tests\WithRentalsAndPurchases.cs" />
-    <Compile Include="Customer Tests\WithLessThan20Points.cs" />
-    <Compile Include="Customer Tests\WithPopularRentals.cs" />
+    <Compile Include="Customer\WithMoreThanTwentyPoints.cs" />
+    <Compile Include="Customer\WithRentalsAndPurchases.cs" />
+    <Compile Include="Customer\WithLessThan20Points.cs" />
+    <Compile Include="Customer\WithPopularRentals.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -46,7 +46,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Customer Tests\" />
     <Folder Include="Mocks\" />
+    <Folder Include="Customer\" />
   </ItemGroup>
 </Project>

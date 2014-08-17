@@ -1,6 +1,5 @@
 namespace MovieRental
 {
-
     public class KidsCalculatorChain : ICalculator
 	{
 		private PriceCalculator calculator;

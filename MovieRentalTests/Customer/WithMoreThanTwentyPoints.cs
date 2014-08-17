@@ -27,7 +27,7 @@ namespace CustomerTests
 		public void GetsOneFreeRental ()
 		{
             controller.ShowCustomerSummary ();
-			Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 0);
+            Assert.IsTrue (controller.CustomerView.customerViewModel.Total.Equals(0));
 		}
 
 		[Test ()]

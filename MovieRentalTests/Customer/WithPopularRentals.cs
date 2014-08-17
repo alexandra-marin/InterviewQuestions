@@ -11,12 +11,12 @@ namespace CustomerTests
     {
         Customer customer;
         CustomerController controller;
+
         [SetUpAttribute]
         public void DefineCustomer ()
         {
             customer = new Customer ();
             customer.LoyalityPoints = 0;
-
             customer.Rentals = new List<IPurchase> (); 
 
             controller = new CustomerController(customer);
@@ -40,7 +40,6 @@ namespace CustomerTests
         {            
             customer.Rentals.Add ((IPurchase)(new Mocks().MockPopularRental.MockInstance));
             controller.ShowCustomerSummary();
-
             double popularRentalPrice = controller.CustomerView.customerViewModel.RentalsWithPrices.Values.Last().Key;
 
             Assert.IsTrue (popularRentalPrice.Equals(33.6));

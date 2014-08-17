@@ -30,7 +30,7 @@ namespace CustomerTests
         public void DoesNotGetFreeRental ()
         {
             controller.ShowCustomerSummary ();
-            Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 31); //28 rental + 3 purchase
+            Assert.IsTrue (controller.CustomerView.customerViewModel.Total.Equals(31)); //28 rental + 3 purchase
         }
     }
 }

@@ -27,10 +27,9 @@ namespace CustomerTests
         public void GetsOneFreeRental ()
         {
             customer.Rentals.Add ((IPurchase)(new Mocks().MockPurchase.MockInstance));
-
             controller.ShowCustomerSummary ();
 
-            Assert.IsTrue (controller.CustomerView.customerViewModel.Total == 3);
+            Assert.IsTrue (controller.CustomerView.customerViewModel.Total.Equals(3));
         }
     }
 }
