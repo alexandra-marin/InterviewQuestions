@@ -57,18 +57,11 @@ namespace MovieRental
             if (days != 0)
             {
                 var discountedDays = GetDiscountedDays();
-                var total = cost * (days - discountedDays) + discountCost * discountedDays; //full price for the first days, discounted after
 
-                if (copiesLeft >= 5)
-                    return total;
-                else if (copiesLeft == 4)
-                    return total + (int)(total * 0.05);
-                else if (copiesLeft == 3)
-                    return total + (int)(total * 0.1);
-                else if (copiesLeft == 2)
-                    return total + (int)(total * 0.15);
-                else if (copiesLeft == 1)
-                    return total + total * 0.2;
+                var nonDiscountedDaysCost = cost * (days - discountedDays);
+                var discountedDaysCost = discountCost * discountedDays;
+
+                return (nonDiscountedDaysCost + discountedDaysCost) * LastCopiesOvercharge();
             }
             return cost;
         }
@@ -91,6 +84,16 @@ namespace MovieRental
         private bool MaxPointCanBeGiven(int copies)
         {
             return copies >= 5 && days > pointsGivenAfterDays; // if you rent more than the period and there are more than 5 copies in store
+        }
+
+        private double LastCopiesOvercharge()
+        {
+            return 1 +  (OverchargeApplies() ? (5 - copiesLeft) * 0.05 : 0);        
+        }
+
+        private bool OverchargeApplies()
+        {
+            return copiesLeft < 5;
         }
     }
 }
