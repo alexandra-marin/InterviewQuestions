@@ -1,9 +1,8 @@
-﻿using System;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MovieRental;
 using MovieRentalTests;
 using NUnit.Framework;
+using System.Linq;
 
 namespace CustomerTests
 {
@@ -12,7 +11,6 @@ namespace CustomerTests
     {
         Customer customer;
         CustomerController controller;
-
         [SetUpAttribute]
         public void DefineCustomer ()
         {
@@ -21,7 +19,7 @@ namespace CustomerTests
 
             customer.Rentals = new List<IPurchase> (); 
             customer.Rentals.Add ((IPurchase)(new Mocks().MockRental.MockInstance)); 
-            customer.Rentals.Add ((IPurchase)(new Mocks().MockPurchase.MockInstance));
+            customer.Rentals.Add ((IPurchase)(new Mocks().MockPopularRental.MockInstance));
 
             controller = new CustomerController(customer);
         }
@@ -29,13 +27,21 @@ namespace CustomerTests
         [Test ()]
         public void PaysMoreForPopularRental ()
         {
-            Assert.IsTrue (true);
+            controller.ShowCustomerSummary();
+
+            var normalRentalPrice = controller.CustomerView.customerViewModel.RentalsWithPrices.Values.First().Key;
+            var popularRentalPrice = controller.CustomerView.customerViewModel.RentalsWithPrices.Values.Last().Key;
+
+            Assert.IsTrue (normalRentalPrice < popularRentalPrice);
         }
 
         [Test ()]
         public void DoesntGetPointsForPopularRentals ()
         {
-            Assert.IsTrue (true);
+            controller.ShowCustomerSummary();
+            var popularRentalPoints = controller.CustomerView.customerViewModel.RentalsWithPrices.Values.Last().Value;
+
+            Assert.IsTrue (popularRentalPoints == 0);
         }
     }
 }
