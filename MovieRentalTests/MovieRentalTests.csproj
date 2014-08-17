@@ -36,6 +36,7 @@
     <Compile Include="Mocks\Mocks.cs" />
     <Compile Include="Customer Tests\WithRentalsAndPurchases.cs" />
     <Compile Include="Customer Tests\WithLessThan20Points.cs" />
+    <Compile Include="Customer Tests\WithPopularRentals.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
