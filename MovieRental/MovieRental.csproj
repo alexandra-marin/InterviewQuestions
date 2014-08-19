@@ -31,24 +31,25 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="Main.cs" />
-    <Compile Include="Calculators\Calculator.cs" />
-    <Compile Include="Calculators\NormalCalculatorChain.cs" />
-    <Compile Include="Calculators\PriceCalculator.cs" />
-    <Compile Include="Calculators\KidsCalculatorChain.cs" />
     <Compile Include="Views\CustomerView.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Calculators\ICalculator.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Calculators\PremiereCalculatorChain.cs" />
     <Compile Include="Models\IPurchase.cs" />
     <Compile Include="Models\Purchase.cs" />
+    <Compile Include="Helpers\Calculators\Calculator.cs" />
+    <Compile Include="Helpers\Calculators\ICalculator.cs" />
+    <Compile Include="Helpers\Calculators\KidsCalculatorChain.cs" />
+    <Compile Include="Helpers\Calculators\NormalCalculatorChain.cs" />
+    <Compile Include="Helpers\Calculators\PremiereCalculatorChain.cs" />
+    <Compile Include="Helpers\Calculators\PriceCalculator.cs" />
+    <Compile Include="Helpers\Number.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Calculators\" />
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>
