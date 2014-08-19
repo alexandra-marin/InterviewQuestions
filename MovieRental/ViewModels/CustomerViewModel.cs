@@ -9,9 +9,9 @@ namespace MovieRental
         public double Total;
         public int Points;
 
-        public CustomerViewModel ( Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices, double total, int points)
+        public CustomerViewModel ( Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices, Number total, int points)
 		{
-			this.Total = total;
+            this.Total = total.GetValue();
 			this.RentalsWithPrices = rentalsWithPrices;
             this.Points = points;
 		}

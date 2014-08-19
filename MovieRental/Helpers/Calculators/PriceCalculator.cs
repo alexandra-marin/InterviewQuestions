@@ -53,7 +53,7 @@ namespace MovieRental
             return this;
         }
 
-        public double CalculatePrice()
+        public Number CalculatePrice()
         {
             if (days != 0)
             {
@@ -62,9 +62,9 @@ namespace MovieRental
                 var nonDiscountedDaysCost = cost * (days - discountedDays);
                 var discountedDaysCost = discountCost * discountedDays;
 
-                return (nonDiscountedDaysCost + discountedDaysCost) * LastCopiesOvercharge();
+                return new Number((nonDiscountedDaysCost + discountedDaysCost) * LastCopiesOvercharge());
             }
-            return cost;
+            return new Number(cost);
         }
 
         private bool DiscountApplies ()

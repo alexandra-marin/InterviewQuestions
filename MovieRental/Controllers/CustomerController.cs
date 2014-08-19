@@ -12,7 +12,7 @@ namespace MovieRental
 		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
 
         private int totalPoints = 0;
-        private double totalPrice = 0;
+        private Number totalPrice;
         private Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices = new Dictionary<IPurchase, KeyValuePair<double, int>>();
 
 		public CustomerController(Customer customer)
@@ -29,7 +29,7 @@ namespace MovieRental
 				
                 //Get the normal fare based on rental days and no of copies
                 var fare = calculator.CalculatePrice (rental.Days, rental.CopiesAvailable);
-				totalPrice += fare;
+                totalPrice += fare;
 
                 //Calculate points based on no of copies
                 var lastPoints = calculator.CalculatePoints (rental.CopiesAvailable);
@@ -38,7 +38,7 @@ namespace MovieRental
                 // Descrease available copies
                 rental.CopiesAvailable -= 1;
 
-                rentalsWithPrices.Add (rental, new KeyValuePair<double, int>(fare, lastPoints));
+                rentalsWithPrices.Add (rental, new KeyValuePair<double, int>(fare.GetValue(), lastPoints));
             }        
             customer.LoyalityPoints += totalPoints;
 		}
@@ -49,9 +49,9 @@ namespace MovieRental
             {
                 var freeRental = rentalsWithPrices.LastOrDefault(x => x.Key.Type == PurchaseType.Rental).Value;
 
-                if (!default(KeyValuePair<int, int>).Equals(freeRental))
+                if (!default(KeyValuePair<double, int>).Equals(freeRental))
                 {
-                    totalPrice -= freeRental.Key;
+                    totalPrice -= new Number(freeRental.Key);
                     customer.LoyalityPoints -= 20;
                     customer.LoyalityPoints -= freeRental.Value;
                 }
