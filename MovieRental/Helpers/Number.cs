@@ -39,7 +39,6 @@ namespace MovieRental
             return new Number(c1.GetValue() * c2.GetValue());
         }
 
-
         public static bool operator ==(Number c1, Number c2) 
         {
             return c1.GetValue().Equals(c2.GetValue());
@@ -52,7 +51,14 @@ namespace MovieRental
 
         public override bool Equals(object obj)
         {
-            return (bool) (this == (Number) obj);
+            try 
+            {
+                return (bool) (this == (Number) obj);
+            }
+            catch 
+            {
+                return false;
+            }
         }
 
         public override int GetHashCode() 
