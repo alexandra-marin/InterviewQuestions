@@ -9,6 +9,7 @@ namespace MovieRental
         private int pointsGivenAfterDays;
         private int maxPointsGiven;
         private int copiesLeft;
+        private const int copiesLeftThreshold = 5;
 
         public PriceCalculator BaseCost(int cost)
         {
@@ -83,17 +84,17 @@ namespace MovieRental
 
         private bool MaxPointCanBeGiven(int copies)
         {
-            return copies >= 5 && days > pointsGivenAfterDays; // if you rent more than the period and there are more than 5 copies in store
+            return copies >= copiesLeftThreshold && days > pointsGivenAfterDays; // if you rent more than the period and there are more than 5 copies in store
         }
 
         private double LastCopiesOvercharge()
         {
-            return 1 +  (OverchargeApplies() ? (5 - copiesLeft) * 0.05 : 0);        
+            return 1 +  (OverchargeApplies() ? (copiesLeftThreshold - copiesLeft) * 0.05 : 0);        
         }
 
         private bool OverchargeApplies()
         {
-            return copiesLeft < 5;
+            return copiesLeft < copiesLeftThreshold;
         }
     }
 }

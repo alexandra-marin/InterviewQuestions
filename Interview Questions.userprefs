@@ -1,33 +1,30 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MovieRentalTests/Mocks/Mocks.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MovieRentalTests/Customer/WithPopularRentals.cs">
     <Files>
-      <File FileName="MovieRentalTests/Mocks/Mocks.cs" Line="1" Column="1" />
-      <File FileName="MovieRentalTests/Customer Tests/WithMoreThanTwentyPoints.cs" Line="1" Column="1" />
-      <File FileName="MovieRentalTests/Customer Tests/WithRentalsAndPurchases.cs" Line="13" Column="13" />
-      <File FileName="MovieRental/Controllers/CustomerController.cs" Line="17" Column="17" />
+      <File FileName="MovieRentalTests/Mocks/Mocks.cs" Line="71" Column="71" />
+      <File FileName="MovieRentalTests/Customer/WithMoreThanTwentyPoints.cs" Line="85" Column="85" />
+      <File FileName="MovieRentalTests/Customer/WithRentalsAndPurchases.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Controllers/CustomerController.cs" Line="23" Column="23" />
       <File FileName="MovieRental/Models/Customer.cs" Line="1" Column="1" />
       <File FileName="MovieRental/Calculators/Calculator.cs" Line="1" Column="1" />
-      <File FileName="MovieRental/Calculators/NormalCalculatorChain.cs" Line="39" Column="39" />
-      <File FileName="MovieRental/Calculators/PriceCalculator.cs" Line="49" Column="49" />
-      <File FileName="MovieRental/Calculators/KidsCalculatorChain.cs" Line="46" Column="46" />
-      <File FileName="MovieRental/Calculators/PremiereCalculatorChain.cs" Line="47" Column="47" />
-      <File FileName="MovieRental/Models/Purchase.cs" Line="16" Column="16" />
+      <File FileName="MovieRental/Calculators/NormalCalculatorChain.cs" Line="48" Column="48" />
+      <File FileName="MovieRental/Calculators/PriceCalculator.cs" Line="10" Column="10" />
+      <File FileName="MovieRental/Calculators/KidsCalculatorChain.cs" Line="1" Column="1" />
+      <File FileName="MovieRental/Calculators/PremiereCalculatorChain.cs" Line="22" Column="22" />
+      <File FileName="MovieRental/Models/Purchase.cs" Line="1" Column="1" />
       <File FileName="MovieRental/Main.cs" Line="1" Column="1" />
-      <File FileName="MovieRentalTests/Customer Tests/WithLessThan20Points.cs" Line="9" Column="9" />
-      <File FileName="MovieRental/Models/IPurchase.cs" Line="28" Column="28" />
+      <File FileName="MovieRentalTests/Customer/WithLessThan20Points.cs" Line="86" Column="86" />
+      <File FileName="MovieRental/Models/IPurchase.cs" Line="1" Column="1" />
       <File FileName="Test-PubSub-IObservable/Subscriber.cs" Line="1" Column="1" />
-      <File FileName="MovieRentalTests/Customer Tests/WithPopularRentals.cs" Line="52" Column="52" />
-      <File FileName="MovieRental/ViewModels/CustomerViewModel.cs" Line="9" Column="9" />
-      <File FileName="MovieRental/Calculators/ICalculator.cs" Line="39" Column="39" />
+      <File FileName="MovieRentalTests/Customer/WithPopularRentals.cs" Line="18" Column="18" />
+      <File FileName="MovieRental/ViewModels/CustomerViewModel.cs" Line="110" Column="110" />
+      <File FileName="MovieRental/Calculators/ICalculator.cs" Line="15" Column="15" />
+      <File FileName="MovieRental/Views/CustomerView.cs" Line="3" Column="3" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="MovieRentalTests" expanded="True">
-            <Node name="CustomerTests" expanded="True" />
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
