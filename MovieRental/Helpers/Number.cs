@@ -6,17 +6,20 @@ namespace MovieRental
     {
         private readonly double doubleNumber;
         private readonly int intNumber;
-        private static bool isInt;
+        private readonly bool isInt;
 
         public Number(int number)
         {
-            this.intNumber = number;
-            isInt = true;
+            this.intNumber = number;            
+            this.doubleNumber = 0;
+            this.isInt = true;
         }
 
         public Number(double number)
         {
+            this.intNumber = 0;
             this.doubleNumber = number;
+            this.isInt = false;
         }
 
         public int GetIntValue()
@@ -35,9 +38,14 @@ namespace MovieRental
             return value;
         }
 
+        static bool AreIntValues(Number c1, Number c2)
+        {
+            return c1.isInt && c2.isInt;
+        }
+
         public static Number operator +(Number c1, Number c2)
         {
-            if (isInt)
+            if (AreIntValues(c1, c2))
             {
                 return new Number(c1.GetIntValue() + c2.GetIntValue());
             }
@@ -49,7 +57,7 @@ namespace MovieRental
 
         public static Number operator -(Number c1, Number c2) 
         {
-            if (isInt)
+            if (AreIntValues(c1, c2))
             {
                 return new Number(c1.GetIntValue() - c2.GetIntValue());
             }
@@ -61,7 +69,7 @@ namespace MovieRental
 
         public static Number operator *(Number c1, Number c2) 
         {
-            if (isInt)
+            if (AreIntValues(c1, c2))
             {
                 return new Number(c1.GetIntValue() * c2.GetIntValue());
             }
@@ -73,7 +81,7 @@ namespace MovieRental
 
         public static bool operator ==(Number c1, Number c2) 
         {
-            if (isInt)
+            if (AreIntValues(c1, c2))
             {
                 return c1.GetIntValue().Equals(c2.GetIntValue());
             }
@@ -85,7 +93,7 @@ namespace MovieRental
 
         public static bool operator !=(Number c1, Number c2) 
         {
-            if (isInt)
+            if (AreIntValues(c1, c2))
             {
                 return !c1.GetIntValue().Equals(c2.GetIntValue());
             }
@@ -121,7 +129,7 @@ namespace MovieRental
 
         public static bool operator >(Number c1, Number c2) 
         {
-            if (isInt)
+            if (AreIntValues(c1, c2))
             {
                 return c1.GetIntValue() > c2.GetIntValue();
             }
@@ -133,7 +141,7 @@ namespace MovieRental
 
         public static bool operator <(Number c1, Number c2) 
         {
-            if (isInt)
+            if (c1.isInt && c2.isInt)
             {
                 return c1.GetIntValue() < c2.GetIntValue();
             }

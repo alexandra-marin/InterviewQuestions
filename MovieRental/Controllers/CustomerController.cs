@@ -11,8 +11,8 @@ namespace MovieRental
 
 		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
 
-        private Number totalPoints;
-        private Number totalPrice;
+        private Number totalPoints = new Number(0);
+        private Number totalPrice = new Number(0);
         private Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices = new Dictionary<IPurchase, KeyValuePair<double, int>>();
 
 		public CustomerController(Customer customer)
