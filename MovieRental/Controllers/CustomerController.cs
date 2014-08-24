@@ -11,7 +11,7 @@ namespace MovieRental
 
 		private Calculator genericCalculator = new Calculator(); // knows all the calculator types
 
-        private int totalPoints = 0;
+        private Number totalPoints;
         private Number totalPrice;
         private Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices = new Dictionary<IPurchase, KeyValuePair<double, int>>();
 
@@ -38,22 +38,22 @@ namespace MovieRental
                 // Descrease available copies
                 rental.CopiesAvailable -= 1;
 
-                rentalsWithPrices.Add (rental, new KeyValuePair<double, int>(fare.GetDoubleValue(), lastPoints));
+                rentalsWithPrices.Add (rental, new KeyValuePair<double, int>(fare.GetDoubleValue(), lastPoints.GetIntValue()));
             }        
             customer.LoyalityPoints += totalPoints;
 		}
 
         private void GetFreeRental()
         {
-            if (customer.LoyalityPoints > 20)
+            if (customer.LoyalityPoints > Customer.MaxLoyalityPoints)
             {
                 var freeRental = rentalsWithPrices.LastOrDefault(x => x.Key.Type == PurchaseType.Rental).Value;
 
                 if (!default(KeyValuePair<double, int>).Equals(freeRental))
                 {
                     totalPrice -= new Number(freeRental.Key);
-                    customer.LoyalityPoints -= 20;
-                    customer.LoyalityPoints -= freeRental.Value;
+                    customer.LoyalityPoints -= Customer.MaxLoyalityPoints;
+                    customer.LoyalityPoints -= new Number(freeRental.Value);
                 }
             }
         }

@@ -15,7 +15,7 @@ namespace CustomerTests
 		public void DefineCustomer ()
 		{
 			customer = new Customer ();
-			customer.LoyalityPoints = 21;
+            customer.LoyalityPoints = new Number(21);
 
 			customer.Rentals = new List<IPurchase> ();
 			customer.Rentals.Add ((IPurchase)(new Mocks().MockRental.MockInstance)); 
@@ -44,7 +44,7 @@ namespace CustomerTests
 		public void PointsAreReset ()
 		{
             controller.ShowCustomerSummary ();
-			Assert.IsTrue (customer.LoyalityPoints == 1); //21+3-20
+            Assert.IsTrue (customer.LoyalityPoints == new Number(1)); //21+3-20
 		}
 	}
 }

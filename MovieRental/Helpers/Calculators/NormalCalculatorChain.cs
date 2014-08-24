@@ -14,9 +14,9 @@
             return calculator.ForDays(days).CopiesLeft(copiesLeft).CalculatePrice();
         }
 
-        public int CalculatePoints(int copies)
+        public Number CalculatePoints(int copies)
         {
-            return calculator.CalculatePoints(copies);
+            return new Number(calculator.CalculatePoints(copies));
         }
 	}
 

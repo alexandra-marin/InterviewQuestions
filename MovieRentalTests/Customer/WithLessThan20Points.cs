@@ -17,7 +17,7 @@ namespace CustomerTests
         public void DefineCustomer ()
         {
             customer = new Customer ();
-            customer.LoyalityPoints = 0;
+            customer.LoyalityPoints = new Number(0);
 
             customer.Rentals = new List<IPurchase> (); 
             customer.Rentals.Add ((IPurchase)(new Mocks().MockRental.MockInstance)); 

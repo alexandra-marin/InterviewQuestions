@@ -9,11 +9,11 @@ namespace MovieRental
         public double Total;
         public int Points;
 
-        public CustomerViewModel ( Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices, Number total, int points)
+        public CustomerViewModel ( Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices, Number total, Number points)
 		{
             this.Total = total.GetDoubleValue();
 			this.RentalsWithPrices = rentalsWithPrices;
-            this.Points = points;
+            this.Points = points.GetIntValue();
 		}
 	}
 }
