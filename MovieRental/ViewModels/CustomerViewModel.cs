@@ -11,7 +11,7 @@ namespace MovieRental
 
         public CustomerViewModel ( Dictionary<IPurchase, KeyValuePair<double, int>> rentalsWithPrices, Number total, int points)
 		{
-            this.Total = total.GetValue();
+            this.Total = total.GetDoubleValue();
 			this.RentalsWithPrices = rentalsWithPrices;
             this.Points = points;
 		}

@@ -38,7 +38,7 @@ namespace MovieRental
                 // Descrease available copies
                 rental.CopiesAvailable -= 1;
 
-                rentalsWithPrices.Add (rental, new KeyValuePair<double, int>(fare.GetValue(), lastPoints));
+                rentalsWithPrices.Add (rental, new KeyValuePair<double, int>(fare.GetDoubleValue(), lastPoints));
             }        
             customer.LoyalityPoints += totalPoints;
 		}
