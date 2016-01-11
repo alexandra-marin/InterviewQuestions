@@ -1,4 +1,4 @@
-﻿<Properties>
+﻿<Properties StartupItem="Test-PubSub-IObservable/Test-PubSub-IObservable.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MovieRentalTests/Customer Tests/WithRentalsAndPurchases.cs">
     <Files>
