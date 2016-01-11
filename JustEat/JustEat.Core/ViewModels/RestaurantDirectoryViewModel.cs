@@ -1,20 +1,24 @@
 ﻿using System;
 using Cirrious.MvvmCross.ViewModels;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace JustEat.Core
 {
     public class RestaurantDirectoryViewModel : MvxViewModel
     {
-        public RestaurantDirectoryViewModel()
+        private IRestaurantDirectoryService service;
+        
+        public RestaurantDirectoryViewModel(IRestaurantDirectoryService service)
         {
+            this.service = service;
         }
 
         public List<Restaurant> Restaurants { get; set;}
 
-        public List<Restaurant> GetAllRestaurants()
+        public async void GetAllRestaurants()
         {
-            return new List<Restaurant>();
+            Restaurants = await service.GetAllRestaurants();
         }
 
         private MvxCommand<string> getRestaurants;
@@ -27,8 +31,9 @@ namespace JustEat.Core
             }
         }
 
-        private void DoGetRestaurantsWithOutcode(string outcode)
-        {           
+        private async void DoGetRestaurantsWithOutcode(string outcode)
+        {  
+            Restaurants = await service.GetAllRestaurants();
         }
     }
 }

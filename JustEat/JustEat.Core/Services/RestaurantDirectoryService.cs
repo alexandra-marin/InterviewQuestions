@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace JustEat.Core
 {
@@ -8,12 +9,12 @@ namespace JustEat.Core
         {
         }
 
-        public List<Restaurant> GetRestaurantsWithOutcode(string outcode)
+        public virtual async Task<List<Restaurant>> GetRestaurantsWithOutcode(string outcode)
         {
             return new List<Restaurant>();
         }
 
-        public List<Restaurant> GetAllRestaurants()
+        public virtual async Task<List<Restaurant>> GetAllRestaurants()
         {
             return new List<Restaurant>();
         }

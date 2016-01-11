@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace JustEat.Core
 {
 	public interface IRestaurantDirectoryService
 	{
-        List<Restaurant> GetRestaurantsWithOutcode(string outcode);
-        List<Restaurant> GetAllRestaurants();
+        Task<List<Restaurant>> GetRestaurantsWithOutcode(string outcode);
+        Task<List<Restaurant>> GetAllRestaurants();
 	}
 }
 

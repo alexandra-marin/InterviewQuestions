@@ -5,18 +5,30 @@ using Ploeh.AutoFixture;
 using System.Linq;
 using Should;
 using JustEat.Core;
+using Cirrious.MvvmCross.Test.Core;
 
 namespace JustEatTests
 {
     [TestFixture()]
-    public class RestaurantDirectoryTests
+    public class RestaurantDirectoryTests : MvxIoCSupportingTest
     {
+        private Fixture fixture;
+        private RestaurantDirectoryService service;
+        private RestaurantDirectoryViewModel viewModelUnderTest;
+
+        [SetUp]
+        public void BeforeEachTest()
+        {
+            base.Setup();
+
+            fixture = new Fixture();
+            service = A.Fake<RestaurantDirectoryService>();
+            viewModelUnderTest = new RestaurantDirectoryViewModel(service);
+        }
+
         [Test()]
         public void SubmitQutcodeShowsRestaurantList()
         {
-            var fixture = new Fixture();
-            var service = A.Fake<RestaurantDirectoryService>();
-            var vm = new RestaurantDirectoryViewModel();
             //Arrange
             var outcode = "SE19";
 
@@ -28,28 +40,24 @@ namespace JustEatTests
             A.CallTo(() => service.GetRestaurantsWithOutcode(A<string>.Ignored)).Returns(restaurants);
 
             //Act
-            vm.GetRestaurantsWithOutcode.Execute(outcode);
+            viewModelUnderTest.GetRestaurantsWithOutcode.Execute(outcode);
 
             //Assert
-            vm.Restaurants.All(x => x.Outcode == outcode).ShouldBeTrue();
+            viewModelUnderTest.Restaurants.All(x => x.Outcode == outcode).ShouldBeTrue();
         }
 
         [Test()]
         public void EachRestaurantHasALogo()
         {
-            var fixture = new Fixture();
-            var service = A.Fake<RestaurantDirectoryService>();
-            var vm = new RestaurantDirectoryViewModel();
-
             //Arrange
             var restaurants = fixture.CreateMany<Restaurant>().ToList();
             A.CallTo(() => service.GetAllRestaurants()).Returns(restaurants);
 
             //Act
-            vm.GetAllRestaurants();
+            viewModelUnderTest.GetAllRestaurants();
 
             //Assert
-            vm.Restaurants.All(x => x.Logo != null).ShouldBeTrue();
+            viewModelUnderTest.Restaurants.All(x => x.Logo != null).ShouldBeTrue();
         }
 
 

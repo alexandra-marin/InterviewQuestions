@@ -59,6 +59,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross.Test.Core">
+      <HintPath>..\..\packages\MvvmCross.HotTuna.Tests.3.5.1\lib\net45\Cirrious.MvvmCross.Test.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RestaurantDirectoryTests.cs" />
