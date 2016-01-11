@@ -24,7 +24,7 @@ namespace JustEatTests
             var restaurantWithOutcode = TestFixture.Build<Restaurant>().With(x => x.Outcode, outcode).Create();
             restaurants.Add(restaurantWithOutcode);
             
-            A.CallTo(() => RestaurantDirectoryService.GetAllRestaurants()).Returns(restaurants);
+            A.CallTo(() => RestaurantDirectoryService.GetRestaurantsWithOutcode(A<string>.Ignored)).Returns(restaurants);
 
             //Act
             RestaurantDirectoryViewModel.FilterByOutcode(outcode).Execute();
