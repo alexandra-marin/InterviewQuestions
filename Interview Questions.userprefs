@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="JustEat/JustEat/JustEat.IOS.csproj">
+﻿<Properties StartupItem="JustEat/JustEat/JustEat.IOS.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MovieRentalTests/Customer Tests/WithRentalsAndPurchases.cs">
     <Files>

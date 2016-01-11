@@ -2,11 +2,9 @@
 using System;
 using FakeItEasy;
 using Ploeh.AutoFixture;
-using NUnit.Framework.Internal;
 using System.Linq;
 using Should;
-using Xamarin.UITest.Queries;
-using Xamarin.UITest;
+using JustEat.Core;
 
 namespace JustEatTests
 {
@@ -16,51 +14,58 @@ namespace JustEatTests
         [Test()]
         public void SubmitQutcodeShowsRestaurantList()
         {
+            var fixture = new Fixture();
+            var service = A.Fake<RestaurantDirectoryService>();
+            var vm = new RestaurantDirectoryViewModel();
             //Arrange
             var outcode = "SE19";
 
-            var restaurants = TestFixture.CreateMany<Restaurant>().ToList();
+            var restaurants = fixture.CreateMany<Restaurant>().ToList();
 
-            var restaurantWithOutcode = TestFixture.Build<Restaurant>().With(x => x.Outcode, outcode).Create();
+            var restaurantWithOutcode = fixture.Build<Restaurant>().With(x => x.Outcode, outcode).Create();
             restaurants.Add(restaurantWithOutcode);
             
-            A.CallTo(() => RestaurantDirectoryService.GetRestaurantsWithOutcode(A<string>.Ignored)).Returns(restaurants);
+            A.CallTo(() => service.GetRestaurantsWithOutcode(A<string>.Ignored)).Returns(restaurants);
 
             //Act
-            RestaurantDirectoryViewModel.FilterByOutcode(outcode).Execute();
+            vm.GetRestaurantsWithOutcode.Execute(outcode);
 
             //Assert
-            RestaurantDirectoryViewModel.Restaurants.All(x => x.Outcode == outcode).ShouldBeTrue();
+            vm.Restaurants.All(x => x.Outcode == outcode).ShouldBeTrue();
         }
 
         [Test()]
         public void EachRestaurantHasALogo()
         {
+            var fixture = new Fixture();
+            var service = A.Fake<RestaurantDirectoryService>();
+            var vm = new RestaurantDirectoryViewModel();
+
             //Arrange
-            var restaurants = TestFixture.CreateMany<Restaurant>().ToList();
-            A.CallTo(() => RestaurantDirectoryService.GetAllRestaurants()).Returns(restaurants);
+            var restaurants = fixture.CreateMany<Restaurant>().ToList();
+            A.CallTo(() => service.GetAllRestaurants()).Returns(restaurants);
 
             //Act
-            RestaurantDirectoryViewModel.GetAllRestaurants();
+            vm.GetAllRestaurants();
 
             //Assert
-            RestaurantDirectoryViewModel.Restaurants.All(x => x.Logo != null).ShouldBeTrue();
+            vm.Restaurants.All(x => x.Logo != null).ShouldBeTrue();
         }
 
 
-        [Test()]
-        public void RequestsAccessToGPSLocation()
-        {
-            var app = ConfigureApp.iOS                
-                .StartApp();   
-            
-            Func<AppQuery, AppQuery> locationPopup = c => c.Marked("locationPopup");
-            app.Tap(locationPopup);
-
-            AppResult[] results = app.Query(locationPopup);
-
-            Assert.IsTrue(results.Any());
-        }
+//        [Test()]
+//        public void RequestsAccessToGPSLocation()
+//        {
+//            var app = ConfigureApp.iOS                
+//                .StartApp();   
+//            
+//            Func<AppQuery, AppQuery> locationPopup = c => c.Marked("locationPopup");
+//            app.Tap(locationPopup);
+//
+//            AppResult[] results = app.Query(locationPopup);
+//
+//            Assert.IsTrue(results.Any());
+//        }
     }
 }
 

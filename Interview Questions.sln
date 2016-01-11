@@ -15,13 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRental", "MovieRental\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRentalTests", "MovieRentalTests\MovieRentalTests.csproj", "{41CE99BA-4FA5-4822-A9E8-5B75BD512AA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustEatTests", "JustEat\JustEatTests\JustEatTests.csproj", "{F4FA74CF-503E-49F0-92F6-FD2A9E83D51B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JustEat", "JustEat", "{5F1885A6-E67F-4DFA-8889-9C9FE74EC600}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustEat.IOS", "JustEat\JustEat\JustEat.IOS.csproj", "{96D51515-2FD8-4992-978C-849966C705A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustEat.UITests", "JustEat\JustEat.UITests\JustEat.UITests.csproj", "{B3993FF5-4E4F-46F8-867E-4ACC5A14BD78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustEat.Core", "JustEat\JustEat.Core\JustEat.Core.csproj", "{40C906F1-9C71-402F-A757-676AD4BA8D53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustEatTests", "JustEat\JustEatTests\JustEatTests.csproj", "{F4FA74CF-503E-49F0-92F6-FD2A9E83D51B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustEat.Core", "JustEat\JustEat.Core\JustEat.Core.csproj", "{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,18 +35,6 @@ Global
 		Debug|iPhone = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Debug|iPhone.ActiveCfg = Debug|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Debug|iPhone.Build.0 = Debug|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Debug|iPhoneSimulator.Build.0 = Debug|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Debug|x86.ActiveCfg = Debug|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Debug|x86.Build.0 = Debug|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Release|iPhone.ActiveCfg = Release|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Release|iPhone.Build.0 = Release|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Release|iPhoneSimulator.ActiveCfg = Release|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Release|iPhoneSimulator.Build.0 = Release|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Release|x86.ActiveCfg = Release|x86
-		{40C906F1-9C71-402F-A757-676AD4BA8D53}.Release|x86.Build.0 = Release|x86
 		{41CE99BA-4FA5-4822-A9E8-5B75BD512AA9}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{41CE99BA-4FA5-4822-A9E8-5B75BD512AA9}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{41CE99BA-4FA5-4822-A9E8-5B75BD512AA9}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
@@ -57,6 +47,18 @@ Global
 		{41CE99BA-4FA5-4822-A9E8-5B75BD512AA9}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{41CE99BA-4FA5-4822-A9E8-5B75BD512AA9}.Release|x86.ActiveCfg = Release|Any CPU
 		{41CE99BA-4FA5-4822-A9E8-5B75BD512AA9}.Release|x86.Build.0 = Release|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Debug|x86.Build.0 = Debug|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Release|iPhone.Build.0 = Release|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Release|x86.ActiveCfg = Release|Any CPU
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6}.Release|x86.Build.0 = Release|Any CPU
 		{615ABD93-2817-4439-8454-0D779F33A156}.Debug|iPhone.ActiveCfg = Debug|x86
 		{615ABD93-2817-4439-8454-0D779F33A156}.Debug|iPhone.Build.0 = Debug|x86
 		{615ABD93-2817-4439-8454-0D779F33A156}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
@@ -165,6 +167,12 @@ Global
 		{F4FA74CF-503E-49F0-92F6-FD2A9E83D51B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F4FA74CF-503E-49F0-92F6-FD2A9E83D51B}.Release|x86.ActiveCfg = Release|Any CPU
 		{F4FA74CF-503E-49F0-92F6-FD2A9E83D51B}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96D51515-2FD8-4992-978C-849966C705A8} = {5F1885A6-E67F-4DFA-8889-9C9FE74EC600}
+		{B3993FF5-4E4F-46F8-867E-4ACC5A14BD78} = {5F1885A6-E67F-4DFA-8889-9C9FE74EC600}
+		{F4FA74CF-503E-49F0-92F6-FD2A9E83D51B} = {5F1885A6-E67F-4DFA-8889-9C9FE74EC600}
+		{5ABD0347-B9AD-4EE4-9C3D-5BEBC3C4E7F6} = {5F1885A6-E67F-4DFA-8889-9C9FE74EC600}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = MovieRentalTests\MovieRentalTests.csproj
